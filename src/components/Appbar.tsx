@@ -11,28 +11,29 @@ const Appbar = () => {
     const [menuClass, setMenuClass] = useState("");
 
     const menuClick = () => {
-        if (menu)
-        {
+        console.log(menu)
+        if (menu) {
             setMenuClass("animate-menuclose")
         }
-        else
-        {
+        else {
             setMenuClass("animate-menuopen")
         }
-        setMenu(prev=>!prev);
+        setMenu(prev => !prev);
     }
 
     return (<nav>
         <div className='fixed z-20 w-[85svw] lg:w-[75svw] xl:w-[60svw] h-[7.5svh] px-5 py-1 bg-primary/10 top-5 left-[50%] transform-[translate(-50%)] flex justify-between items-center rounded-2xl border shadow-xl shadow-primary/10 backdrop-blur-2xl'>
-            <Link href={"/"} className='text-lg font-playwrite' >
-                Homemade Soaps
+            <Link href={"/"} className='text-2xl font-neon' >
+                LGI Modz
             </Link>
 
             <div className="md:hidden">
                 <Button onClick={menuClick}><Menu size={"25"} /></Button>
             </div>
             <div className='hidden md:flex'>
-                <Button className='w-full'>Order Now</Button>
+                <Link href={"/patches"}>
+                    <Button className='w-full'>View Patches</Button>
+                </Link>
             </div>
         </div>
         {/* Dummy */}
