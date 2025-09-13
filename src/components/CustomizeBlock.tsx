@@ -13,7 +13,7 @@ export default function () {
                 <div className="w-full text-center md:text-left md:w-8/12 text-4xl font-semibold font-schibsted rounded-lg ">Create a Custom Patch</div>
                 <div className="w-full text-center md:text-left md:w-8/12 text-md text-gray-400 rounded-lg">Design your own personalized patch — made just for you.</div>
                 <div className={`w-full items-center md:items-start gap-4 md:w-8/12 h-[5svh] rounded-lg text-3xl font-semibold font-mono flex flex-col md:flex-row justify-between `}>
-                    <Link href={discordInviteLink} target="blank">
+                    <Link href={"mailto:lgimodsofficial@gmail.com"} target="blank">
                         <Button className="shadow shadow-primary" variant={"link"}>Contact Us</Button>
                     </Link>
                 </div>

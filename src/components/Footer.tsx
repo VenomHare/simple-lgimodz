@@ -1,6 +1,7 @@
 import { Mail, Phone } from "lucide-react";
 import { Button } from "./ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function () {
 
@@ -23,7 +24,42 @@ export default function () {
                         <div className="text-md font-light text-gray-400 font-schibsted">+91 986 995 0563</div> */}
                     </div>
                     <div className="w-full flex justify-center gap-4">
-                        <a href="https://www.youtube.com/@lgiyt" target="blank">
+                        <Link href="https://www.patreon.com/cw/lgimodz" target="blank">
+                            <Button
+                                size={"icon"}
+                                variant={"outline"}
+                                className="flex text-blue-600">
+                                <span className="[&>svg]:h-5 [&>svg]:w-5">
+                                    <PatreonIcon />
+                                </span>
+
+                            </Button>
+                        </Link>
+                        <Link href="https://discord.com/invite/wMrBMKzYFX" target="blank">
+                            <Button
+                                size={"icon"}
+                                variant={"outline"}
+                                className="flex text-blue-600">
+                                <DiscordIcon />
+                            </Button>
+                        </Link>
+                        <Link href="mailto:lgimodsofficial@gmail.com" target="blank">
+                            <Button
+                                size={"icon"}
+                                variant={"outline"}
+                                className="flex text-blue-600">
+                                <Mail />
+                            </Button>
+                        </Link>
+                        <Link href="https://instagram.com/lgi.yt" target="blank">
+                            <Button
+                                size={"icon"}
+                                variant={"outline"}
+                                className="flex text-blue-600">
+                                <InstagramIcon />
+                            </Button>
+                        </Link>
+                        <Link href="https://www.youtube.com/@lgiyt" target="blank">
                             <Button
                                 size={"icon"}
                                 variant={"outline"}
@@ -33,36 +69,20 @@ export default function () {
                                 </span>
 
                             </Button>
-                        </a>
-                        <a href="https://instagram.com/lgi.yt" target="blank">
-                            <Button
-                                size={"icon"}
-                                variant={"outline"}
-                                className="flex text-blue-600">
-                                <InstagramIcon />
-                            </Button>
-                        </a>
-                        <a href="https://discord.com/invite/wMrBMKzYFX" target="blank">
-                            <Button
-                                size={"icon"}
-                                variant={"outline"}
-                                className="flex text-blue-600">
-                                <DiscordIcon />
-                            </Button>
-                        </a>
-                        <a href="mailto:lgimodsofficial@gmail.com" target="blank">
-                            <Button
-                                size={"icon"}
-                                variant={"outline"}
-                                className="flex text-blue-600">
-                                <Mail />
-                            </Button>
-                        </a>
+                        </Link>
+
+
                     </div>
                 </div>
             </div>
         </div>
     </>)
+}
+
+const PatreonIcon = () => {
+    return (<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 1080 1080" xmlSpace="preserve">
+        <path className="st0" d="M1033.05,324.45c-0.19-137.9-107.59-250.92-233.6-291.7c-156.48-50.64-362.86-43.3-512.28,27.2  C106.07,145.41,49.18,332.61,47.06,519.31c-1.74,153.5,13.58,557.79,241.62,560.67c169.44,2.15,194.67-216.18,273.07-321.33  c55.78-74.81,127.6-95.94,216.01-117.82C929.71,603.22,1033.27,483.3,1033.05,324.45z" />
+    </svg>)
 }
 
 const YoutubeIcon = () => {
