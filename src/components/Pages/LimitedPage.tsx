@@ -193,6 +193,12 @@ export function LimitedPage() {
                         >
                             Purchase {LimitedMetadata.label}
                         </Button>
+                        <Button
+                            className={`w-full md:w-4/5 lg:w-2/5 bg-yellow-700 hover:bg-yellow-500/90`}
+                            size="lg"
+                        >
+                            Download with Patreon
+                        </Button>
                     </div>
                 </section>
                 {/* Wrestlers Section */}

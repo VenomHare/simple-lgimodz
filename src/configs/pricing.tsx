@@ -4,45 +4,49 @@ import { Crown, Star, Zap } from "lucide-react"
 export const AvailablePatches = [
   {
     id: "limited",
-    price: 25
+    price: 24.99
   },
   {
     id: "evolution_tier1",
-    price: 9.99
+    price: 39.99
   },
   {
     id: "evolution_tier2",
-    price: 19.99
+    price: 49.99
   },
   {
-    id: "evolution_tier3",
-    price: 29.99
+    id: "kingdom",
+    price: 44.99
+  },
+  {
+    id: "fantasy",
+    price: 44.99
   }
 ]
 
 //UI
 export const LimitedPricing = {
-  priceUSD: 25,
+  priceUSD: 24.99,
   priceINR: 1800
 }
 
 export const FantasyPricing = {
-  priceUSD: 25,
-  priceINR: 1800
+  priceUSD: 44.99,
+  priceINR: 4500
 }
 
 export const KingdomPricing = {
-  priceUSD: 25,
-  priceINR: 1800
+  priceUSD: 44.99,
+  priceINR: 4500
 }
 
 export const EvolutionTiers = [
   {
     id: "evolution_tier1",
-    name: "Basic",
+    name: "V1",
     icon: <Star className="w-6 h-6" />,
-    priceUSD: 9.99,
-    priceINR: 799,
+    priceUSD: 39.99,
+    priceINR: 4000,
     features: [
       "Complete 2K25 Evolution Patch",
       "65+ Wrestlers",
@@ -55,10 +59,10 @@ export const EvolutionTiers = [
   },
   {
     id: "evolution_tier1",
-    name: "Premium",
+    name: "V2",
     icon: <Crown className="w-6 h-6" />,
-    priceUSD: 19.99,
-    priceINR: 1599,
+    priceUSD: 49.99,
+    priceINR: 5000,
     features: [
       "Everything in Basic",
       "Exclusive Bonus Wrestlers (10+)",

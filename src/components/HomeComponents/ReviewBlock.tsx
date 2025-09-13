@@ -8,7 +8,7 @@ interface Props {
 export default function ({ content, name, title, pfp }: Props) {
     return (<>
         <div className="rounded-2xl w-full min-h-[15svh] h-fit border-2 border-primary/40 shadow-md shadow-secondary overflow-clip">
-            <div className="w-full h-full flex flex-col">
+            <div className="w-full h-full flex flex-col p-2">
                 <div className="flex justify-start gap-4 items-center m-3">
 
                     <div className="w-10 h-10 rounded-full overflow-clip">
@@ -28,7 +28,7 @@ export default function ({ content, name, title, pfp }: Props) {
 
                 </div>
 
-                <div className="p-3 px-4 font-schibsted">
+                <div className="p-3 px-4 font-schibsted font-semibold italic">
                     {content}
                 </div>
             </div>

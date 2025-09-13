@@ -9,10 +9,10 @@ export default function () {
     return (<>
         <div className="w-[100svw] min-h-[10svh] border-t-2 border-primary flex justify-center mt-10">
             <div className="w-[85svw] lg:w-[75svw] xl:w-[60svw]  h-full flex flex-col md:flex-row py-10 gap-10">
-                <div className="w-full h-full flex gap-4 px-4">
-                    <Image src="https://lgimodz.vercel.app/lgimodz.webp" alt="lgimodz" width={64} height={64}></Image>
+                <div className="w-full h-full flex items-center gap-4 px-4">
+                    <Image src="/lgimodz.webp" alt="lgimodz" width={128} height={128}></Image>
                     <div className="flex flex-col gap-4">
-                        <h4 className="font-medium text-lg font-playwrite">LGI Modz</h4>
+                        <h4 className="font-medium text-4xl font-neon">LGI Modz</h4>
                         <h5 className="font-light text-sm font-schibsted">A Mod that you always want</h5>
                     </div>
                 </div>
@@ -27,7 +27,7 @@ export default function () {
                             <Button
                                 size={"icon"}
                                 variant={"outline"}
-                                className="flex text-primary">
+                                className="flex text-blue-600">
                                 <span className="[&>svg]:h-5 [&>svg]:w-5">
                                     <YoutubeIcon />
                                 </span>
@@ -38,7 +38,7 @@ export default function () {
                             <Button
                                 size={"icon"}
                                 variant={"outline"}
-                                className="flex text-primary">
+                                className="flex text-blue-600">
                                 <InstagramIcon />
                             </Button>
                         </a>
@@ -46,7 +46,7 @@ export default function () {
                             <Button
                                 size={"icon"}
                                 variant={"outline"}
-                                className="flex text-primary">
+                                className="flex text-blue-600">
                                 <DiscordIcon />
                             </Button>
                         </a>
@@ -54,7 +54,7 @@ export default function () {
                             <Button
                                 size={"icon"}
                                 variant={"outline"}
-                                className="flex text-primary">
+                                className="flex text-blue-600">
                                 <Mail />
                             </Button>
                         </a>

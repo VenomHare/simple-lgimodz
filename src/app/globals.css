@@ -174,7 +174,7 @@ body {
   letter-spacing: var(--tracking-normal);
 }
 *::selection {
-  background-color: #87878783;
+  background-color: #5e1b1b83;
 }
 @layer base {
   * {

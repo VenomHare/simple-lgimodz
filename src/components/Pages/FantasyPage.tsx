@@ -16,6 +16,7 @@ import PaymentPopup, { PatchDetails } from "../PaymentPopup"
 import { FantasyRoster } from "@/configs/roster"
 import { FantasyPricing, KingdomPricing } from "@/configs/pricing"
 import { FantasyArenas } from "@/configs/arenas"
+import Image from "next/image"
 
 
 
@@ -70,89 +71,10 @@ export function FantasyPage() {
         <div className="min-h-screen max-w-[85svw] lg:max-w-[75svw] xl:max-w-[60svw] mx-auto my-0 bg-background">
             {/* Main Content */}
             <main className="container mx-auto px-4 py-8 space-y-12">
-                {/* Screenshot Carousel */}
-                <section className="relative">
-                    <div className="relative aspect-[2/1] rounded-xl overflow-hidden bg-card">
-                        <img
-                            src={screenshots[currentScreenshot] || "/placeholder.svg"}
-                            alt={`Screenshot ${currentScreenshot + 1}`}
-                            className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-
-                        {/* Navigation Buttons */}
-                        <Button
-                            variant="outline"
-                            size="icon"
-                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm"
-                            onClick={prevScreenshot}
-                        >
-                            <ChevronLeft className="w-4 h-4" />
-                        </Button>
-                        <Button
-                            variant="outline"
-                            size="icon"
-                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm"
-                            onClick={nextScreenshot}
-                        >
-                            <ChevronRight className="w-4 h-4" />
-                        </Button>
-
-                        {/* Indicators */}
-                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                            {screenshots.map((_, index) => (
-                                <button
-                                    key={index}
-                                    className={`w-2 h-2 rounded-full transition-colors ${index === currentScreenshot ? "bg-primary" : "bg-white/50"
-                                        }`}
-                                    onClick={() => setCurrentScreenshot(index)}
-                                />
-                            ))}
-                        </div>
-
-                        <Dialog open={showCredits} onOpenChange={setShowCredits}>
-                            <DialogTrigger asChild>
-                                <Button
-                                    variant="outline"
-                                    size="sm"
-                                    className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm"
-                                >
-                                    <Heart className="w-4 h-4 mr-2" />
-                                    Credits
-                                </Button>
-                            </DialogTrigger>
-                            <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
-                                <DialogHeader>
-                                    <DialogTitle className="text-2xl">Credits & Acknowledgments</DialogTitle>
-                                </DialogHeader>
-                                <div className="space-y-4 mt-4">
-                                    <p className="text-muted-foreground">
-                                        Special thanks to all the talented individuals who made this patch possible:
-                                    </p>
-                                    <div className="grid gap-3">
-                                        {Credits.map((person, index) => (
-                                            <div key={index} className="flex items-center gap-3 p-3 bg-card rounded-lg">
-                                                <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                                                    <Heart className="w-4 h-4 text-primary" />
-                                                </div>
-                                                <div>
-                                                    <h3 className="font-semibold">{person.name}</h3>
-                                                    <p className="text-sm text-muted-foreground">{person.role}</p>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <div className="text-center pt-4 border-t">
-                                        <p className="text-sm text-muted-foreground">
-                                            And a huge thanks to the WWE HCTP modding community for their continued support!
-                                        </p>
-                                    </div>
-                                </div>
-                            </DialogContent>
-                        </Dialog>
-                    </div>
-                </section>
-
+                <div className="w-full flex justify-center"> 
+                    <Image src={FantasyMetadata.poster} alt="Fantasy Edition" width={175} height={250}/>
+                </div>
+                
                 {/* Patch Info */}
                 <section className="text-center space-y-6">
                     <div className="space-y-4">
@@ -196,104 +118,13 @@ export function FantasyPage() {
                                 setPaymentScreen(true);  
                             }}
                         >
-                            Purchase {FantasyMetadata.label}
+                            Pre Order {FantasyMetadata.label}
                         </Button>
                     </div>
                 </section>
-                {/* Wrestlers Section */}
-                <section>
-                    <div className="text-center mb-8">
-                        <h2 className="text-4xl font-bold mb-4">Complete Roster</h2>
-                        <p className="text-muted-foreground text-lg">{FantasyMetadata.wrestlers_count} legendary wrestlers from different eras of WWE history</p>
-                    </div>
-
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
-                        {FantasyRoster.slice(0, 12).map((wrestler) => (
-                            <WrestlerCard wrestler={wrestler} key={wrestler.id} />
-                        ))}
-                    </div>
-
-                    <div className="text-center">
-                        <Dialog open={showAllWrestlers} onOpenChange={setShowAllWrestlers}>
-                            <DialogTrigger asChild>
-                                <Button variant="outline" size="lg">
-                                    <Users className="w-4 h-4 mr-2" />
-                                    View All {FantasyArenas.length} Wrestlers
-                                </Button>
-                            </DialogTrigger>
-                            <DialogContent className="max-w-6xl max-h-[80vh] overflow-y-auto">
-                                <DialogHeader>
-                                    <DialogTitle>Complete Wrestler Roster</DialogTitle>
-                                </DialogHeader>
-                                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mt-4">
-                                    {FantasyRoster.map((wrestler) => (
-                                        <WrestlerCard wrestler={wrestler} key={wrestler.id} />
-                                    ))}
-                                </div>
-                            </DialogContent>
-                        </Dialog>
-                    </div>
-                </section>
-
-                {/* Arenas Section */}
-                <section>
-                    <div className="text-center mb-8">
-                        <h2 className="text-4xl font-bold mb-4">Epic Arenas</h2>
-                        <p className="text-muted-foreground text-lg">
-                            {FantasyArenas.length} meticulously crafted wrestling venues with authentic atmosphere
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                        {FantasyArenas.slice(0, 6).map((arena) => (
-                            <ArenaCard arena={arena} key={arena.id} />
-                        ))}
-                    </div>
-
-                    <div className="text-center">
-                        <Dialog open={showAllArenas} onOpenChange={setShowAllArenas}>
-                            <DialogTrigger asChild>
-                                <Button variant="outline" size="lg">
-                                    <MapPin className="w-4 h-4 mr-2" />
-                                    View All {FantasyArenas.length} Arenas
-                                </Button>
-                            </DialogTrigger>
-                            <DialogContent className="max-w-6xl max-h-[80vh] overflow-y-auto">
-                                <DialogHeader>
-                                    <DialogTitle>All Wrestling Arenas</DialogTitle>
-                                </DialogHeader>
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-                                    {FantasyArenas.map((arena) => (
-                                        <ArenaCard arena={arena} key={arena.id} />
-                                    ))}
-                                </div>
-                            </DialogContent>
-                        </Dialog>
-                    </div>
-                </section>
-
-                {/* Videos Section */}
-                <section>
-                    <div className="text-center mb-8">
-                        <h2 className="text-4xl font-bold mb-4">Showcase Videos</h2>
-                        <p className="text-muted-foreground text-lg">
-                            Watch the patch in action with gameplay footage and feature highlights
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {videos.map((video) => (
-                            <ShowcaseVideo video={video} key={video.id} />
-                        ))}
-                    </div>
-                    {
-                        videos.length == 0 && <div className="w-full flex justify-center my-4">
-                            <p className="text-lg font-semibold text-gray-400 font-schibsted text-center text-balance mt-3" >
-                                Loading Showcase Videos
-                            </p>
-                        </div>
-                    }
-                </section>
+                <div className="w-full flex justify-center my-[20dvh]">
+                    <p className="text-balance text-center text-5xl font-playwrite">Comming Soon</p>
+                </div>
             </main>
         </div>
     </>

@@ -19,23 +19,28 @@ export const DeluxeArenas: Arena[] = [
 ]
 
 export const EvolutionArenas: Arena[] = [
-  { id: 1, image: '/deluxe/arenas/1.webp', name: 'Arena 1' },
-  { id: 2, image: '/deluxe/arenas/2.webp', name: 'Arena 2' },
-  { id: 3, image: '/deluxe/arenas/3.webp', name: 'Arena 3' },
-  { id: 4, image: '/deluxe/arenas/4.webp', name: 'Arena 4' },
-  { id: 5, image: '/deluxe/arenas/5.webp', name: 'Arena 5' },
-  { id: 6, image: '/deluxe/arenas/6.webp', name: 'Arena 6' },
-  { id: 7, image: '/deluxe/arenas/7.webp', name: 'Arena 7' },
-  { id: 8, image: '/deluxe/arenas/8.webp', name: 'Arena 8' },
-  { id: 9, image: '/deluxe/arenas/9.webp', name: 'Arena 9' },
-  { id: 10, image: '/deluxe/arenas/10.webp', name: 'Arena 10' },
-  { id: 11, image: '/deluxe/arenas/11.webp', name: 'Arena 11' },
-  { id: 12, image: '/deluxe/arenas/12.webp', name: 'Arena 12' },
-  { id: 13, image: '/deluxe/arenas/13.webp', name: 'Arena 13' },
-  { id: 14, image: '/deluxe/arenas/14.webp', name: 'Arena 14' },
-  { id: 15, image: '/deluxe/arenas/15.webp', name: 'Arena 15' }
+  { id: 1, image: '/evolution/arenas/1.webp', name: 'Arena 1' },
+  { id: 2, image: '/evolution/arenas/2.webp', name: 'Arena 2' },
+  { id: 3, image: '/evolution/arenas/3.webp', name: 'Arena 3' },
+  { id: 4, image: '/evolution/arenas/4.webp', name: 'Arena 4' },
+  { id: 5, image: '/evolution/arenas/5.webp', name: 'Arena 5' },
+  { id: 6, image: '/evolution/arenas/6.webp', name: 'Arena 6' },
+  { id: 7, image: '/evolution/arenas/7.webp', name: 'Arena 7' },
+  { id: 8, image: '/evolution/arenas/8.webp', name: 'Arena 8' },
+  { id: 9, image: '/evolution/arenas/9.webp', name: 'Arena 9' },
+  { id: 10, image: '/evolution/arenas/10.webp', name: 'Arena 10' },
+  { id: 11, image: '/evolution/arenas/11.webp', name: 'Arena 11' },
+  { id: 12, image: '/evolution/arenas/12.webp', name: 'Arena 12' },
+  { id: 13, image: '/evolution/arenas/13.webp', name: 'Arena 13' },
+  { id: 14, image: '/evolution/arenas/14.webp', name: 'Arena 14' },
+  { id: 15, image: '/evolution/arenas/15.webp', name: 'Arena 15' },
+  { id: 16, image: '/evolution/arenas/16.webp', name: 'Arena 16' },
+  { id: 17, image: '/evolution/arenas/17.webp', name: 'Arena 17' },
+  { id: 18, image: '/evolution/arenas/18.webp', name: 'Arena 18' },
+  { id: 19, image: '/evolution/arenas/19.webp', name: 'Arena 19' },
+  { id: 20, image: '/evolution/arenas/20.webp', name: 'Arena 20' },
+  { id: 21, image: '/evolution/arenas/21.webp', name: 'Arena 21' }
 ]
-
 export const LimitedArenas: Arena[] = [
   { id: 1, image: '/limited/arenas/1.webp', name: 'Arena 1' },
   { id: 2, image: '/limited/arenas/2.webp', name: 'Arena 2' },

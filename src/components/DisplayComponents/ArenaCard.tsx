@@ -12,9 +12,9 @@ export function ArenaCard({arena}:{arena: Arena}) {
                         className="w-full h-full object-cover"
                     />
                 </div>
-                <div className="p-3">
+                {/* <div className="p-3">
                     <h3 className="font-semibold text-balance">{arena.name}</h3>
-                </div>
+                </div> */}
             </CardContent>
         </Card>
     )

@@ -4,7 +4,7 @@ import CustomizeBlock from "../CustomizeBlock";
 import ProductListItem from "../HomeComponents/ProductListItem";
 import PaymentPopup, { PatchDetails } from "../PaymentPopup";
 import { useState } from "react";
-import { LimitedPricing } from "@/configs/pricing";
+import { FantasyPricing, KingdomPricing, LimitedPricing } from "@/configs/pricing";
 
 export default function () {
 
@@ -36,7 +36,7 @@ export default function () {
                 <div className="w-[85svw] lg:w-[75svw] xl:w-[60svw] min-h-[50svh] flex flex-col items-center">
                     <ProductListItem
                         id={EvolutionMetadata.id}
-                        screenshots_count={EvolutionMetadata.screenshots_count}
+                        poster={EvolutionMetadata.poster}
                         title={EvolutionMetadata.label}
                         left
                         detailsLink="/evolution"
@@ -45,7 +45,7 @@ export default function () {
                     />
                     <ProductListItem
                         id={LimitedMetadata.id}
-                        screenshots_count={LimitedMetadata.screenshots_count}
+                        poster={LimitedMetadata.poster}
                         left={false}
                         title={LimitedMetadata.label}
                         detailsLink="/limited"
@@ -61,33 +61,50 @@ export default function () {
                             setPaymentScreen(true);
                         }}
                     />
-
+                    <ProductListItem
+                        id={"limited"}
+                        poster={FantasyMetadata.poster}
+                        title={FantasyMetadata.label}
+                        detailsLink="/fantasy"
+                        description={FantasyMetadata.description}
+                        onPurchase={() => {
+                            setCurrentPatch({
+                                id: FantasyMetadata.id,
+                                name: FantasyMetadata.label,
+                                description: FantasyMetadata.description,
+                                thumbnail: FantasyMetadata.poster,
+                                price: FantasyPricing.priceUSD
+                            });
+                            setPaymentScreen(true);
+                        }}
+                    />
+                    <ProductListItem
+                        id={"limited"}
+                        poster={KingdomMetadata.poster}
+                        title={KingdomMetadata.label}
+                        detailsLink="/kingdom"
+                        description={KingdomMetadata.description}
+                        left={false}
+                        onPurchase={() => {
+                            setCurrentPatch({
+                                id: KingdomMetadata.id,
+                                name: KingdomMetadata.label,
+                                description: KingdomMetadata.description,
+                                thumbnail: KingdomMetadata.poster,
+                                price: KingdomPricing.priceUSD
+                            });
+                            setPaymentScreen(true);
+                        }}
+                    />
                     <ProductListItem
                         id={DeluxeMetadata.id}
-                        screenshots_count={DeluxeMetadata.screenshots_count}
+                        poster={DeluxeMetadata.poster}
                         title={DeluxeMetadata.label}
                         detailsLink="/deluxe"
                         description={DeluxeMetadata.description}
                         left
                         purchaseLink="https://socialwolvez.com/app/l/uiwfZA"
                         buyButtonLabel="Download Now"
-                    />
-
-                    <ProductListItem
-                        id={"limited"}
-                        screenshots_count={FantasyMetadata.screenshots_count}
-                        title={FantasyMetadata.label}
-                        detailsLink="/fantasy"
-                        description={FantasyMetadata.description}
-                        left={false}
-                    />
-                    <ProductListItem
-                        id={"limited"}
-                        screenshots_count={KingdomMetadata.screenshots_count}
-                        title={KingdomMetadata.label}
-                        detailsLink="/kingdom"
-                        description={KingdomMetadata.description}
-                        left
                     />
                     <CustomizeBlock />
                 </div>
