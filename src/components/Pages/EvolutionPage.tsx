@@ -8,22 +8,18 @@ import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { ChevronLeft, ChevronRight, Play, Users, MapPin, Star, Heart, Check, Crown, Zap } from "lucide-react"
 import { Credits, EvolutionMetadata } from "@/configs/metadata"
-import { EvolutionTiers } from "@/configs/pricing"
+import { EvolutionTiers, LimitedPricing } from "@/configs/pricing"
 import { getShowcaseVideos } from "@/lib/utils"
-import { Videos } from "@/lib/types"
+import { PatchDetails, Videos } from "@/lib/types"
 import { EvolutionArenas } from "@/configs/arenas"
 import { ArenaCard } from "../DisplayComponents/ArenaCard"
 import { ShowcaseVideo } from "../DisplayComponents/ShowcaseVideo"
 import { WrestlerCard } from "../DisplayComponents/WrestlerCard"
-import { EvolutionRoster } from "@/configs/roster"
-import PaymentPopup, { PatchDetails } from "../PaymentPopup"
+import { EvolutionRosterV1, EvolutionRosterV2 } from "@/configs/roster"
+import PaymentPopup from "../PaymentPopup"
+import Link from "next/link"
 
-
-
-
-const screenshots = Array.from({length: EvolutionMetadata.screenshots_count}).map((_, i) => `/${EvolutionMetadata.id}/screenshots/${i+1}.webp`)
-
-
+const screenshots = Array.from({ length: EvolutionMetadata.screenshots_count }).map((_, i) => `/${EvolutionMetadata.id}/screenshots/${i + 1}.webp`)
 
 export function EvolutionPage() {
     const [currentScreenshot, setCurrentScreenshot] = useState(0)
@@ -36,7 +32,9 @@ export function EvolutionPage() {
         name: "2K25 Evolution Patch Tier 1",
         description: EvolutionMetadata.description,
         thumbnail: EvolutionMetadata.poster,
-        price: EvolutionTiers[1].priceUSD
+        price: EvolutionTiers[1].originalPriceUSD,
+        hasDiscount: EvolutionTiers[1].hasDiscount,
+        discountPrice: EvolutionTiers[1].discountedPriceUSD
     })
 
     const [showCredits, setShowCredits] = useState(false)
@@ -180,16 +178,20 @@ export function EvolutionPage() {
                     </div>
                 </section>
 
-                <section id="tiers">
-                    <div className="text-center mb-12">
+                <section id="tiers" className="mt-[10dvh]">
+                    <div className="text-center mb-12 ">
+                        <Badge variant="destructive" className="text-lg px-4 py-2 mb-4">
+                            <Zap className="w-4 h-4 mr-2" />
+                            Limited Time Offer
+                        </Badge>
                         <h2 className="text-4xl font-bold mb-4">Choose Your Package</h2>
                         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                            Select the perfect tier for your wrestling experience. All packages include the complete patch with
-                            lifetime access.
+                            Special discount pricing available for a limited time! All packages include the complete patch with
+                            lifetime access and regular updates.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
                         {EvolutionTiers.map((tier, index) => (
                             <Card
                                 key={index}
@@ -200,16 +202,47 @@ export function EvolutionPage() {
                                         <Badge className="bg-primary text-primary-foreground px-4 py-1">Most Popular</Badge>
                                     </div>
                                 )}
+                                {
+                                    tier.hasDiscount &&
+                                    <div className="absolute -top-2 -right-2">
+                                        <Badge variant="secondary" className="bg-blue-600/80 text-sm">
+                                            {tier.discount}% OFF
+                                        </Badge>
+                                    </div>
+                                }
+
                                 <CardContent className="p-8">
                                     <div className="text-center mb-6">
                                         <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
                                             {tier.icon}
                                         </div>
-                                        <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
-                                        <div className="space-y-1">
-                                            <div className="text-3xl font-bold">${tier.priceUSD}</div>
-                                            <div className="text-lg text-muted-foreground">₹{tier.priceINR}</div>
-                                        </div>
+                                        <h3 className="text-2xl font-bold mb-4">{tier.name}</h3>
+                                        {
+                                            tier.hasDiscount ?
+                                                <div className="space-y-2">
+                                                    <div className="flex items-center justify-center gap-3">
+                                                        <span className="text-lg line-through text-muted-foreground">${tier.originalPriceUSD}</span>
+                                                        <span className="text-3xl font-bold text-primary">${tier.discountedPriceUSD}</span>
+                                                    </div>
+                                                    <div className="flex items-center justify-center gap-3">
+                                                        <span className="text-sm line-through text-muted-foreground">₹{tier.originalPriceINR}</span>
+                                                        <span className="text-lg font-semibold">₹{tier.discountedPriceINR}</span>
+                                                    </div>
+                                                    <p className="text-sm text-green-600 font-medium">
+                                                        Save ${(tier.originalPriceUSD - tier.discountedPriceUSD).toFixed(2)} / ₹
+                                                        {tier.originalPriceINR - tier.discountedPriceINR}
+                                                    </p>
+                                                </div>
+                                                :
+                                                <div className="space-y-2">
+                                                    <div className="flex items-center justify-center gap-3">
+                                                        <span className="text-3xl font-bold">${tier.originalPriceUSD}</span>
+                                                    </div>
+                                                    <div className="flex items-center justify-center gap-3">
+                                                        <span className="text-lg ">₹{tier.originalPriceINR}</span>
+                                                    </div>
+                                                </div>
+                                        }
                                     </div>
 
                                     <ul className="space-y-3 mb-8">
@@ -229,11 +262,13 @@ export function EvolutionPage() {
                                             setCurrentPatch({
                                                 id: tier.id,
                                                 name: `${EvolutionMetadata.label} ${tier.name}`,
-                                                thumbnail: EvolutionMetadata.poster,
                                                 description: EvolutionMetadata.description,
-                                                price: tier.priceUSD
-                                            })
-                                            setPaymentScreen(true);
+                                                thumbnail: EvolutionMetadata.poster,
+                                                price: tier.originalPriceUSD,
+                                                hasDiscount: tier.hasDiscount,
+                                                discountPrice: tier.discountedPriceUSD
+                                            });
+                                            setPaymentScreen(true)
                                         }}
                                     >
                                         Purchase {tier.name}
@@ -242,23 +277,46 @@ export function EvolutionPage() {
                             </Card>
                         ))}
                     </div>
-
-                    <div className="text-center mt-8">
+                    <div className="text-center mt-8 space-y-2">
                         <p className="text-sm text-muted-foreground">
                             All purchases include email support. Secure payment processing via Paypal.
                         </p>
+                        {
+                            EvolutionTiers[0].hasDiscount || EvolutionTiers[1].hasDiscount &&
+                                <p className="text-xs text-destructive font-medium">⏰ Limited time pricing - offer expires soon!</p>
+                        }
                     </div>
                 </section>
+
+                <section className="w-full flex items-center justify-center mb-[10dvh]">
+
+                    <div className="w-full flex flex-col items-center gap-[4dvh]">
+                        <div className="w-full md:w-4/5 lg:w-2/5 flex items-center justify-center gap-3">
+                            <div className="w-1/3 h-[1px] rounded bg-muted-foreground/40"></div>
+                            <div className="text-muted-foreground/40 font-playwrite">or</div>
+                            <div className="w-1/3 h-[1px] rounded bg-muted-foreground/40"></div>
+                        </div>
+                        <Link href={EvolutionMetadata.patreonLink} className="w-full md:w-4/5 lg:w-2/5" target="blank">
+                            <Button
+                                className={`w-full bg-yellow-700 hover:bg-yellow-500/90`}
+                                size="lg"
+                            >
+                                Download with Patreon
+                            </Button>
+                        </Link>
+                    </div>
+                </section>
+
 
                 {/* Wrestlers Section */}
                 <section>
                     <div className="text-center mb-8">
-                        <h2 className="text-4xl font-bold mb-4">Complete Roster</h2>
+                        <h2 className="text-4xl font-bold mb-4">V1 Roster</h2>
                         <p className="text-muted-foreground text-lg">{EvolutionMetadata.wrestlers_count} legendary wrestlers from different eras of WWE history</p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
-                        {EvolutionRoster.slice(0, 12).map((wrestler) => (
+                        {EvolutionRosterV1.slice(0, 12).map((wrestler) => (
                             <WrestlerCard wrestler={wrestler} key={wrestler.id} />
                         ))}
                     </div>
@@ -268,7 +326,7 @@ export function EvolutionPage() {
                             <DialogTrigger asChild>
                                 <Button variant="outline" size="lg">
                                     <Users className="w-4 h-4 mr-2" />
-                                    View All {EvolutionRoster.length} Wrestlers
+                                    View All {EvolutionRosterV1.length} Wrestlers
                                 </Button>
                             </DialogTrigger>
                             <DialogContent className="max-w-6xl max-h-[80vh] overflow-y-auto">
@@ -276,14 +334,49 @@ export function EvolutionPage() {
                                     <DialogTitle>Complete Wrestler Roster</DialogTitle>
                                 </DialogHeader>
                                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mt-4">
-                                    {EvolutionRoster.map((wrestler) => (
-                                        <WrestlerCard wrestler={wrestler} />
+                                    {EvolutionRosterV1.map((wrestler) => (
+                                        <WrestlerCard wrestler={wrestler} key={wrestler.id} />
                                     ))}
                                 </div>
                             </DialogContent>
                         </Dialog>
                     </div>
                 </section>
+
+                <section>
+                    <div className="text-center mb-8">
+                        <h2 className="text-4xl font-bold mb-4">V2 Roster</h2>
+                        <p className="text-muted-foreground text-lg">{EvolutionMetadata.wrestlers_count} legendary wrestlers from different eras of WWE history</p>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+                        {EvolutionRosterV2.slice(0, 12).map((wrestler) => (
+                            <WrestlerCard wrestler={wrestler} key={wrestler.id} />
+                        ))}
+                    </div>
+
+                    <div className="text-center">
+                        <Dialog open={showAllWrestlers} onOpenChange={setShowAllWrestlers}>
+                            <DialogTrigger asChild>
+                                <Button variant="outline" size="lg">
+                                    <Users className="w-4 h-4 mr-2" />
+                                    View All {EvolutionRosterV2.length} Wrestlers
+                                </Button>
+                            </DialogTrigger>
+                            <DialogContent className="max-w-6xl max-h-[80vh] overflow-y-auto">
+                                <DialogHeader>
+                                    <DialogTitle>Complete Wrestler Roster</DialogTitle>
+                                </DialogHeader>
+                                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mt-4">
+                                    {EvolutionRosterV2.map((wrestler) => (
+                                        <WrestlerCard wrestler={wrestler} key={wrestler.id} />
+                                    ))}
+                                </div>
+                            </DialogContent>
+                        </Dialog>
+                    </div>
+                </section>
+
 
                 {/* Arenas Section */}
                 <section>

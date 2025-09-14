@@ -51,7 +51,7 @@ export default function ({ loading, id, poster, title, description, left = true,
                 <CarouselPrevious />
                 <CarouselNext />
             </Carousel> */}
-            <div className="w-full flex justify-center">
+            <div className="w-full md:w-1/3 flex justify-center">
                 {/* 
                     The shadow may not appear if the parent has overflow:hidden or if the shadow color is not visible against the background.
                     Try removing overflow-hidden from parent containers, or use a more visible shadow color.

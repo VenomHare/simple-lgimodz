@@ -32,7 +32,7 @@ const Appbar = () => {
             </div>
             <div className='hidden md:flex'>
                 <Link href={"/patches"}>
-                    <Button className='w-full'>Download Now</Button>
+                    <Button className='w-full bg-blue-600'>Download Now</Button>
                 </Link>
             </div>
         </div>
@@ -44,7 +44,9 @@ const Appbar = () => {
                     <Button onClick={menuClick} className=''><X size={"25"} /></Button>
                 </div>
                 <div className="w-full my-2">
-                    <Button className='w-full'>Download Now</Button>
+                    <Link href={"/patches"}>
+                        <Button className='w-full bg-blue-600'>Download Now</Button>
+                    </Link>
                 </div>
             </div>
         </div>

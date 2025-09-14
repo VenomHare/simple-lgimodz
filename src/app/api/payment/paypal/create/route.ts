@@ -1,7 +1,32 @@
 import axios, { AxiosError } from "axios";
 import { NextRequest, NextResponse } from "next/server";
 import { endpoint_uri, fetchAccessToken, supabase } from "@/lib/server";
-import { AvailablePatches } from "@/configs/pricing";
+import { FantasyPricing, EvolutionTiers, KingdomPricing, LimitedPricing } from "@/configs/pricing";
+
+//Paypal Payment Processing 
+export const AvailablePatches = [
+    {
+        id: "limited",
+        price: LimitedPricing.hasDiscount ? LimitedPricing.discountedPriceUSD : LimitedPricing.originalPriceUSD
+    },
+    {
+        id: "evolution_tier1",
+        price: EvolutionTiers[0].hasDiscount ? EvolutionTiers[0].discountedPriceUSD : EvolutionTiers[0].originalPriceUSD
+    },
+    {
+        id: "evolution_tier2",
+        price: EvolutionTiers[1].hasDiscount ? EvolutionTiers[1].discountedPriceUSD : EvolutionTiers[1].originalPriceUSD
+    },
+    {
+        id: "kingdom",
+        price: KingdomPricing.hasDiscount ? KingdomPricing.discountedPriceUSD : KingdomPricing.originalPriceUSD
+    },
+    {
+        id: "fantasy",
+        price: FantasyPricing.hasDiscount ? FantasyPricing.discountedPriceUSD : FantasyPricing.originalPriceUSD
+    }
+]
+
 
 const HOST = process.env.NEXT_PUBLIC_HOST_URL || "https://lgimodz.vercel.app"
 
@@ -24,7 +49,7 @@ export const POST = async (req: NextRequest) => {
         const patch = (patchId as string).startsWith("evolution") ? "evolution" : patchId
 
         const data = AvailablePatches.find(p => p.id == patchId);
-        
+
         if (data == undefined) {
             console.warn("Data Not Found");
             return NextResponse.json({ message: "Data Not Found" }, { status: 500 })
@@ -39,7 +64,7 @@ export const POST = async (req: NextRequest) => {
                         currency_code: "USD",
                         value: am,
                         breakdown: {
-                            item_total : {
+                            item_total: {
                                 currency_code: "USD",
                                 value: am
                             },
@@ -59,7 +84,7 @@ export const POST = async (req: NextRequest) => {
                             },
 
                             // Change it here
-                            image_url: `https://lgimodz.vercel.app/img/poster/${patch}.png`,
+                            image_url: `https://lgimodz.vercel.app/poster/${patch}.png`,
                             url: `${HOST}/patches/${patch}`,
                             category: "DIGITAL_GOODS"
                         }

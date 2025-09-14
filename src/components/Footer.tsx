@@ -10,11 +10,16 @@ export default function () {
     return (<>
         <div className="w-[100svw] min-h-[10svh] border-t-2 border-primary flex justify-center mt-10">
             <div className="w-[85svw] lg:w-[75svw] xl:w-[60svw]  h-full flex flex-col md:flex-row py-10 gap-10">
-                <div className="w-full h-full flex items-center gap-4 px-4">
-                    <Image src="/lgimodz.webp" alt="lgimodz" width={128} height={128}></Image>
-                    <div className="flex flex-col gap-4">
-                        <h4 className="font-medium text-4xl font-neon">LGI Modz</h4>
-                        <h5 className="font-light text-sm font-schibsted">A Mod that you always want</h5>
+                <div className="flex flex-col w-full items-center">
+                    <div className="w-full h-full flex items-center gap-4 px-4">
+                        <Image src="/lgimodz.webp" alt="lgimodz" width={128} height={128}></Image>
+                        <div className="flex flex-col gap-4">
+                            <h4 className="font-medium text-4xl font-neon">LGI Modz</h4>
+                            <h5 className="font-light text-sm font-schibsted">A Mod that you always want</h5>
+                        </div>
+                    </div>
+                    <div className="font-schibsted text-balance text-center">
+                        Before making any purchase, please read our <Link href={"/privacy-policies"} className="text-primary hover:underline">Privacy Policy</Link>
                     </div>
                 </div>
                 <div className="w-full flex flex-col items-end gap-4">

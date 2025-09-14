@@ -11,32 +11,13 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import axios, { AxiosResponse } from "axios"
 import Image from "next/image"
+import { PatchDetails, PaymentPopupProps, PaymentScreens, UserInfo } from "@/lib/types"
 
-type PaymentScreen = "details" | "payment" | "success" | "failed" | "upi"
-type Platform = "PC" | "Mobile" | "PS2"
-
-export interface PatchDetails {
-    id: string
-    name: string
-    description: string
-    price: number
-    thumbnail: string
-}
-
-interface UserInfo {
-    gmail: string
-    discordId?: string
-    platform: Platform | ""
-}
-
-interface PaymentPopupProps {
-    isOpen: boolean
-    onClose: () => void
-    patchDetails: PatchDetails
-}
+// Declare confetti as any to avoid TypeScript errors
+declare const confetti: any;
 
 export default function PaymentPopup({ isOpen, onClose, patchDetails }: PaymentPopupProps) {
-    const [currentScreen, setCurrentScreen] = useState<PaymentScreen>("details")
+    const [currentScreen, setCurrentScreen] = useState<PaymentScreens>("details")
     const [isProcessing, setIsProcessing] = useState(false)
     const [paymentId, setPaymentId] = useState("");
     const [userInfo, setUserInfo] = useState<UserInfo>({
@@ -155,7 +136,7 @@ export default function PaymentPopup({ isOpen, onClose, patchDetails }: PaymentP
 
     return (
         <Dialog open={isOpen} onOpenChange={handleClose}>
-            <DialogContent className="sm:max-w-md max-h-[90vh] mt-[5dvh] overflow-y-auto">
+            <DialogContent className="sm:max-w-md max-h-[90vh] mt-[5dvh] overflow-y-auto" showCloseButton={false}>
                 <DialogHeader>
                     <DialogTitle className="flex items-center justify-between">
                         <span>
@@ -216,7 +197,7 @@ function PatchDetailsScreen({
             </Card>
 
             {/* User Information Form */}
-            <Card className="border-2 border-primary/50">
+            <Card className="border-2 bg-gradient-to-br from-card to-secondary/10 ">
                 <CardHeader>
                     <CardTitle className="text-lg">Delivery Information</CardTitle>
                 </CardHeader>
@@ -276,7 +257,7 @@ function PatchDetailsScreen({
             </Card>
 
             {/* Order Summary */}
-            <Card>
+            <Card className="bg-gradient-to-br from-card to-secondary/10">
                 <CardHeader>
                     <CardTitle className="text-lg">Order Summary</CardTitle>
                 </CardHeader>
@@ -289,10 +270,25 @@ function PatchDetailsScreen({
                         <span>Delivery Charges</span>
                         <span>$0.00</span>
                     </div>
+                    {
+                        patchDetails.hasDiscount && <>
+                            <Separator />
+                            <div className="flex justify-between text-sm text-green-600">
+                                <span>Discount</span>
+                                <span>-${(patchDetails.price - patchDetails.discountPrice).toFixed(2)}</span>
+                            </div>
+                        </>
+                    }
+
                     <Separator />
                     <div className="flex justify-between font-semibold text-lg">
                         <span>Total</span>
-                        <span>${patchDetails.price.toFixed(2)}</span>
+                        {
+                            patchDetails.hasDiscount ?
+                                <span>${patchDetails.discountPrice.toFixed(2)}</span>
+                                :
+                                <span>${patchDetails.price.toFixed(2)}</span>
+                        }
                     </div>
                 </CardContent>
             </Card>
@@ -326,8 +322,8 @@ function PaymentScreen({
     setPaymentId: (paymentId: string) => void
 }) {
 
-    const total = patchDetails.price
 
+    const total = patchDetails.price
 
     const options = {
         "clientId": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID!,
@@ -417,7 +413,7 @@ function PaymentScreen({
                 </div>
             </div>
 
-            <Card>
+            <Card className="bg-gradient-to-br from-card to-secondary/10">
                 <CardHeader>
                     <CardTitle className="text-lg">Payment Method</CardTitle>
                 </CardHeader>
@@ -484,6 +480,49 @@ function SuccessScreen({
     discordLink: string
     paymentId: string
 }) {
+
+    function popConfetti() {
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    }
+
+    // 2. A more explosive fireworks effect
+    function fireworks() {
+        var duration = 5 * 1000;
+        var animationEnd = Date.now() + duration;
+        var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+        function randomInRange(min: number, max: number) {
+            return Math.random() * (max - min) + min;
+        }
+
+        var interval = setInterval(function () {
+            var timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            var particleCount = 50 * (timeLeft / duration);
+            // since particles fall down, start a bit higher than random
+            confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+            confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+        }, 250);
+    }
+
+    useEffect(() => {
+        try {
+            popConfetti();
+            fireworks();
+        }
+        catch{
+            console.log("Failed to play animation");
+        }
+    },[])
+
     return (
         <div className="text-center space-y-6">
             <div className="flex justify-center">
@@ -529,13 +568,15 @@ function SuccessScreen({
             {
                 patchDetails.id !== "donate" ?
                     <>
-                        <Card className="bg-neutral-900 border-primary">
-                            <CardContent className="pt-6">
+                        <Card className="bg-gradient-to-br from-card to-secondary/10 border-2 border-primary/40">
+                            <CardHeader>
+                                <div className="flex items-center gap-2 text-primary font-medium">
+                                    <Mail className="h-4 w-4" />
+                                    Delivery Information
+                                </div>
+                            </CardHeader>
+                            <CardContent className="pt-1">
                                 <div className="text-sm space-y-2">
-                                    <div className="flex items-center gap-2 text-primary font-medium">
-                                        <Mail className="h-4 w-4" />
-                                        Delivery Information
-                                    </div>
                                     <p className="text-foreground">
                                         Your patch will be delivered via Google Drive within <strong>2-3 business days</strong>. We'll manually
                                         grant access to your Gmail account.
@@ -546,12 +587,14 @@ function SuccessScreen({
                         </Card>
 
                         <Card className="bg-background ">
-                            <CardContent className="pt-6">
+                            <CardHeader>
+                                <div className="flex items-center gap-2 text-foreground font-medium">
+                                    <MessageCircle className="h-4 w-4" />
+                                    Need Help?
+                                </div>
+                            </CardHeader>
+                            <CardContent className="pt-2">
                                 <div className="text-sm space-y-3">
-                                    <div className="flex items-center gap-2 text-foreground font-medium">
-                                        <MessageCircle className="h-4 w-4" />
-                                        Need Help?
-                                    </div>
                                     <p className=" text-foreground">If you don't receive access within 3 business days or have any issues:</p>
                                     <div className="space-y-2">
                                         <Button
@@ -691,23 +734,3 @@ function UPIScreen({
     )
 }
 
-// Demo component to show how to use the PaymentPopup
-export function PaymentDemo() {
-    const [isOpen, setIsOpen] = useState(false)
-
-    const samplePatch: PatchDetails = {
-        id: "limited",
-        name: "WWE HCTP Ultimate Roster Pack",
-        description: "Complete roster update with modern WWE superstars, updated movesets, and enhanced graphics.",
-        price: 9.99,
-        thumbnail: "/placeholder.svg?height=112&width=80", // Replace with actual patch thumbnail
-    }
-
-    return (
-        <div className="p-8">
-            <Button onClick={() => setIsOpen(true)}>Purchase WWE HCTP Patch</Button>
-
-            <PaymentPopup isOpen={isOpen} onClose={() => setIsOpen(false)} patchDetails={samplePatch} />
-        </div>
-    )
-}

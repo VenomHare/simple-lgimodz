@@ -2,9 +2,10 @@
 import { DeluxeMetadata, EvolutionMetadata, FantasyMetadata, KingdomMetadata, LimitedMetadata } from "@/configs/metadata";
 import CustomizeBlock from "../CustomizeBlock";
 import ProductListItem from "../HomeComponents/ProductListItem";
-import PaymentPopup, { PatchDetails } from "../PaymentPopup";
+import PaymentPopup from "../PaymentPopup";
 import { useState } from "react";
 import { FantasyPricing, KingdomPricing, LimitedPricing } from "@/configs/pricing";
+import { PatchDetails } from "@/lib/types";
 
 export default function () {
 
@@ -14,7 +15,9 @@ export default function () {
         name: LimitedMetadata.label,
         description: LimitedMetadata.description,
         thumbnail: LimitedMetadata.poster,
-        price: LimitedPricing.priceUSD
+        price: LimitedPricing.originalPriceUSD,
+        hasDiscount:  LimitedPricing.hasDiscount,
+        discountPrice: LimitedPricing.discountedPriceUSD
     })
 
     return (<>
@@ -26,7 +29,7 @@ export default function () {
             patchDetails={currentPatch}
         />
         {/* bg gradient */}
-        <div className="absolute top-[-25%] left-0 w-[100svw] h-screen bg-[radial-gradient(circle_at_top,#FF0000_-100%,#03071272_40%)] backdrop-blur-lg inset-0 z-[-1]">
+        <div className="absolute top-[-25%] left-0 w-[100svw] h-screen bg-[radial-gradient(circle_at_top,#FF0000_-100%,#00000072_40%)] backdrop-blur-lg inset-0 z-[-1]">
 
         </div>
         <div className="flex flex-col items-center mt-6">
@@ -42,6 +45,7 @@ export default function () {
                         detailsLink="/evolution"
                         description={EvolutionMetadata.description}
                         purchaseLink="/evolution#tiers"
+                        buyButtonLabel="View Tiers"
                     />
                     <ProductListItem
                         id={LimitedMetadata.id}
@@ -56,7 +60,9 @@ export default function () {
                                 name: LimitedMetadata.label,
                                 description: LimitedMetadata.description,
                                 thumbnail: LimitedMetadata.poster,
-                                price: LimitedPricing.priceUSD
+                                price: LimitedPricing.originalPriceUSD,
+                                hasDiscount:  LimitedPricing.hasDiscount,
+                                discountPrice: LimitedPricing.discountedPriceUSD
                             });
                             setPaymentScreen(true);
                         }}
@@ -73,10 +79,13 @@ export default function () {
                                 name: FantasyMetadata.label,
                                 description: FantasyMetadata.description,
                                 thumbnail: FantasyMetadata.poster,
-                                price: FantasyPricing.priceUSD
+                                price: FantasyPricing.originalPriceUSD,
+                                hasDiscount:  FantasyPricing.hasDiscount,
+                                discountPrice: FantasyPricing.discountedPriceUSD
                             });
                             setPaymentScreen(true);
                         }}
+                        buyButtonLabel="Pre Order Now"
                     />
                     <ProductListItem
                         id={"limited"}
@@ -91,7 +100,9 @@ export default function () {
                                 name: KingdomMetadata.label,
                                 description: KingdomMetadata.description,
                                 thumbnail: KingdomMetadata.poster,
-                                price: KingdomPricing.priceUSD
+                                price: KingdomPricing.originalPriceUSD,
+                                hasDiscount:  KingdomPricing.hasDiscount,
+                                discountPrice: KingdomPricing.discountedPriceUSD
                             });
                             setPaymentScreen(true);
                         }}

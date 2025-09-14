@@ -10,16 +10,17 @@ import { ChevronLeft, ChevronRight, Play, Users, MapPin, Star, Heart, Check, Cro
 import { getShowcaseVideos } from "@/lib/utils"
 import { Credits, LimitedMetadata } from "@/configs/metadata"
 import { LimitedPricing } from "@/configs/pricing"
-import { Videos } from "@/lib/types"
+import { PatchDetails, Videos } from "@/lib/types"
 import { LimitedArenas } from "@/configs/arenas"
 import { ArenaCard } from "../DisplayComponents/ArenaCard"
 import { ShowcaseVideo } from "../DisplayComponents/ShowcaseVideo"
 import { WrestlerCard } from "../DisplayComponents/WrestlerCard"
 import { LimitedRoster } from "@/configs/roster"
-import PaymentPopup, { PatchDetails } from "../PaymentPopup"
+import PaymentPopup from "../PaymentPopup"
+import Link from "next/link"
 
 
-const screenshots = Array.from({length: LimitedMetadata.screenshots_count}).map((_, i) => `/${LimitedMetadata.id}/screenshots/${i+1}.webp`)
+const screenshots = Array.from({ length: LimitedMetadata.screenshots_count }).map((_, i) => `/${LimitedMetadata.id}/screenshots/${i + 1}.webp`)
 
 export function LimitedPage() {
     const [currentScreenshot, setCurrentScreenshot] = useState(0)
@@ -33,7 +34,9 @@ export function LimitedPage() {
         name: LimitedMetadata.label,
         description: LimitedMetadata.description,
         thumbnail: LimitedMetadata.poster,
-        price: LimitedPricing.priceUSD
+        price: LimitedPricing.originalPriceUSD,
+        hasDiscount:  LimitedPricing.hasDiscount,
+        discountPrice: LimitedPricing.discountedPriceUSD
     })
 
     const nextScreenshot = () => {
@@ -179,26 +182,51 @@ export function LimitedPage() {
 
                 <section>
                     <div className="w-full flex flex-col items-center justify-center gap-3">
-                        <div className="space-y-1">
-                            <div className="text-3xl font-bold">${LimitedPricing.priceUSD}</div>
-                            <div className="text-lg text-muted-foreground">₹{LimitedPricing.priceINR}</div>
-                        </div>
+                        {
+                            LimitedPricing.hasDiscount ?
+                                <div className="space-y-2">
+                                    <div className="flex items-center justify-center gap-3">
+                                        <span className="text-lg line-through text-muted-foreground">${LimitedPricing.originalPriceUSD}</span>
+                                        <span className="text-3xl font-bold text-primary">${LimitedPricing.discountedPriceUSD}</span>
+                                    </div>
+                                    <div className="flex items-center justify-center gap-3">
+                                        <span className="text-sm line-through text-muted-foreground">₹{LimitedPricing.originalPriceINR}</span>
+                                        <span className="text-lg font-semibold">₹{LimitedPricing.discountedPriceINR}</span>
+                                    </div>
+                                    <p className="text-sm text-center text-green-600 font-medium">
+                                        Save ${(LimitedPricing.originalPriceUSD - LimitedPricing.discountedPriceUSD).toFixed(2)} / ₹
+                                        {LimitedPricing.originalPriceINR - LimitedPricing.discountedPriceINR}
+                                    </p>
+                                </div>
+                                :
+                                <div className="space-y-1">
+                                    <div className="text-3xl font-bold">${LimitedPricing.originalPriceUSD}</div>
+                                    <div className="text-lg text-muted-foreground">₹{LimitedPricing.originalPriceINR}</div>
+                                </div>
+                        }
                         <Button
                             className={`w-full md:w-4/5 lg:w-2/5 bg-primary hover:bg-primary/90`}
                             variant={"default"}
                             size="lg"
                             onClick={() => {
-                                setPaymentScreen(true);  
+                                setPaymentScreen(true);
                             }}
                         >
                             Purchase {LimitedMetadata.label}
                         </Button>
-                        <Button
-                            className={`w-full md:w-4/5 lg:w-2/5 bg-yellow-700 hover:bg-yellow-500/90`}
-                            size="lg"
-                        >
-                            Download with Patreon
-                        </Button>
+                        <div className="w-full md:w-4/5 lg:w-2/5 flex items-center justify-center gap-3">
+                            <div className="w-1/3 h-[1px] rounded bg-muted-foreground/40"></div>
+                            <div className="text-muted-foreground/40 font-playwrite">or</div>
+                            <div className="w-1/3 h-[1px] rounded bg-muted-foreground/40"></div>
+                        </div>
+                        <Link href={LimitedMetadata.patreonLink} className="w-full md:w-4/5 lg:w-2/5" target="blank">
+                            <Button
+                                className={`w-full bg-yellow-700 hover:bg-yellow-500/90`}
+                                size="lg"
+                            >
+                                Download with Patreon
+                            </Button>
+                        </Link>
                     </div>
                 </section>
                 {/* Wrestlers Section */}

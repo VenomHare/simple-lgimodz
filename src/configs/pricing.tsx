@@ -1,43 +1,43 @@
+import { DiscountOffer } from "@/lib/types"
 import { Crown, Star, Zap } from "lucide-react"
 
-//Paypal Payment Processing 
-export const AvailablePatches = [
-  {
-    id: "limited",
-    price: 24.99
-  },
-  {
-    id: "evolution_tier1",
-    price: 39.99
-  },
-  {
-    id: "evolution_tier2",
-    price: 49.99
-  },
-  {
-    id: "kingdom",
-    price: 44.99
-  },
-  {
-    id: "fantasy",
-    price: 44.99
-  }
-]
 
 //UI
+export const discountOffers: DiscountOffer[] = [
+  
+]
+
 export const LimitedPricing = {
-  priceUSD: 24.99,
-  priceINR: 1800
+  originalPriceUSD: 24.99,
+  originalPriceINR: 1800,
+
+  discountedPriceUSD: 19.99,
+  discountedPriceINR: 1600,
+
+  discount: 10,
+  hasDiscount: false
 }
 
 export const FantasyPricing = {
-  priceUSD: 44.99,
-  priceINR: 4500
+  originalPriceUSD: 44.99,
+  originalPriceINR: 4500,
+
+  discountedPriceUSD: 39.99,
+  discountedPriceINR: 4000,
+
+  discount: 10,
+  hasDiscount: false
 }
 
 export const KingdomPricing = {
-  priceUSD: 44.99,
-  priceINR: 4500
+  originalPriceUSD: 44.99,
+  originalPriceINR: 4500,
+
+  discountedPriceUSD: 39.99,
+  discountedPriceINR: 4000,
+
+  discount: 10,
+  hasDiscount: false
 }
 
 export const EvolutionTiers = [
@@ -45,8 +45,14 @@ export const EvolutionTiers = [
     id: "evolution_tier1",
     name: "V1",
     icon: <Star className="w-6 h-6" />,
-    priceUSD: 39.99,
-    priceINR: 4000,
+    originalPriceUSD: 39.99,
+    discountedPriceUSD: 35.99,
+
+    originalPriceINR: 3999,
+    discountedPriceINR: 3599,
+
+    discount: 10,
+    hasDiscount: false,
     features: [
       "Complete 2K25 Evolution Patch",
       "65+ Wrestlers",
@@ -61,8 +67,16 @@ export const EvolutionTiers = [
     id: "evolution_tier1",
     name: "V2",
     icon: <Crown className="w-6 h-6" />,
-    priceUSD: 49.99,
-    priceINR: 5000,
+
+    originalPriceUSD: 49.99,
+    discountedPriceUSD: 45.99,
+
+    originalPriceINR: 4999,
+    discountedPriceINR: 4599,
+
+    discount: 10,
+    hasDiscount: false,
+
     features: [
       "Everything in Basic",
       "Exclusive Bonus Wrestlers (10+)",
@@ -74,21 +88,6 @@ export const EvolutionTiers = [
     ],
     popular: true,
   },
-  // {
-  //   name: "Ultimate",
-  //   icon: <Zap className="w-6 h-6" />,
-  //   priceUSD: 34.99,
-  //   priceINR: 2799,
-  //   features: [
-  //     "Everything in Premium",
-  //     "Modding Tools & Assets",
-  //     "Custom Wrestler Creator",
-  //     "Arena Editor Access",
-  //     "1-on-1 Setup Support",
-  //     "Lifetime Updates",
-  //     "VIP Discord Channel",
-  //     "Behind-the-Scenes Content",
-  //   ],
-  //   popular: false,
-  // },
 ]
+
+

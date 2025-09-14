@@ -4,7 +4,7 @@ import { Card, CardContent } from "../ui/card";
 export function WrestlerCard({ wrestler }: { wrestler: Wrestler }) {
     return (<Card key={wrestler.id} className="group hover:scale-105 transition-transform duration-200">
         <CardContent className="p-4">
-            <div className="aspect-[3/4] rounded-lg overflow-hidden mb-3">
+            <div className="aspect-[3/4] rounded-lg overflow-visible mb-3">
                 <img
                     src={wrestler.image || "/placeholder.svg"}
                     alt={wrestler.name}

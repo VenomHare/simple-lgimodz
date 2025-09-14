@@ -4,6 +4,7 @@ import "./globals.css";
 import localFont from 'next/font/local'
 import Appbar from "@/components/Appbar";
 import Footer from "@/components/Footer";
+import DiscountPopup from "@/components/DisplayComponents/DiscountPopup";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,8 +49,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${antonFont.variable} ${neonFont.variable} ${geistMono.variable} ${playwriteAUSA.variable} ${schibsted_Grotesk.variable} antialiased max-w-[100svw] overflow-x-hidden`}
       >
         <Appbar />
+        <DiscountPopup/>
         {children}
         <Footer />
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
       </body>
     </html>
   );
