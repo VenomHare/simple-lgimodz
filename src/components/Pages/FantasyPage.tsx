@@ -68,16 +68,16 @@ export function FantasyPage() {
                                 <div className="space-y-2">
                                     <div className="flex items-center justify-center gap-3">
                                         <span className="text-lg line-through text-muted-foreground">${FantasyPricing.originalPriceUSD}</span>
-                                        <span className="text-3xl font-bold text-primary">${FantasyPricing.discountedPriceUSD}</span>
+                                        <span className="text-3xl font-bold text-green-500">${FantasyPricing.discountedPriceUSD}</span>
                                     </div>
                                     <div className="flex items-center justify-center gap-3">
                                         <span className="text-sm line-through text-muted-foreground">₹{FantasyPricing.originalPriceINR}</span>
                                         <span className="text-lg font-semibold">₹{FantasyPricing.discountedPriceINR}</span>
                                     </div>
-                                    <p className="text-sm text-center text-green-600 font-medium">
+                                    {/* <p className="text-sm text-center text-green-600 font-medium">
                                         Save ${(FantasyPricing.originalPriceUSD - FantasyPricing.discountedPriceUSD).toFixed(2)} / ₹
                                         {FantasyPricing.originalPriceINR - FantasyPricing.discountedPriceINR}
-                                    </p>
+                                    </p> */}
                                 </div>
                                 :
                                 <div className="space-y-1">

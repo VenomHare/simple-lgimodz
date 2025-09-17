@@ -68,7 +68,7 @@ export default function () {
                         }}
                     />
                     <ProductListItem
-                        id={"limited"}
+                        id={FantasyMetadata.id}
                         poster={FantasyMetadata.poster}
                         title={FantasyMetadata.label}
                         detailsLink="/fantasy"
@@ -88,7 +88,7 @@ export default function () {
                         buyButtonLabel="Pre Order Now"
                     />
                     <ProductListItem
-                        id={"limited"}
+                        id={KingdomMetadata.id}
                         poster={KingdomMetadata.poster}
                         title={KingdomMetadata.label}
                         detailsLink="/kingdom"

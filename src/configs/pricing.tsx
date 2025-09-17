@@ -8,36 +8,36 @@ export const discountOffers: DiscountOffer[] = [
 ]
 
 export const LimitedPricing = {
-  originalPriceUSD: 24.99,
-  originalPriceINR: 1800,
+  originalPriceUSD: 34.99,
+  discountedPriceUSD: 24.99,
+  
+  originalPriceINR: 2500,
+  discountedPriceINR: 1800,
 
-  discountedPriceUSD: 19.99,
-  discountedPriceINR: 1600,
-
-  discount: 10,
-  hasDiscount: false
+  discount: 30,
+  hasDiscount: true
 }
 
 export const FantasyPricing = {
-  originalPriceUSD: 44.99,
-  originalPriceINR: 4500,
-
-  discountedPriceUSD: 39.99,
-  discountedPriceINR: 4000,
+  originalPriceUSD: 49.99,
+  discountedPriceUSD: 44.99,
+  
+  originalPriceINR: 5000,
+  discountedPriceINR: 4500,
 
   discount: 10,
-  hasDiscount: false
+  hasDiscount: true
 }
 
 export const KingdomPricing = {
-  originalPriceUSD: 44.99,
-  originalPriceINR: 4500,
-
-  discountedPriceUSD: 39.99,
-  discountedPriceINR: 4000,
+  originalPriceUSD: 49.99,
+  discountedPriceUSD: 44.99,
+  
+  originalPriceINR: 5000,
+  discountedPriceINR: 4500,
 
   discount: 10,
-  hasDiscount: false
+  hasDiscount: true
 }
 
 export const EvolutionTiers = [
@@ -45,14 +45,14 @@ export const EvolutionTiers = [
     id: "evolution_tier1",
     name: "V1",
     icon: <Star className="w-6 h-6" />,
-    originalPriceUSD: 39.99,
-    discountedPriceUSD: 35.99,
+    originalPriceUSD: 44.99,
+    discountedPriceUSD: 39.99,
 
-    originalPriceINR: 3999,
-    discountedPriceINR: 3599,
+    originalPriceINR: 4499,
+    discountedPriceINR: 3999,
 
     discount: 10,
-    hasDiscount: false,
+    hasDiscount: true,
     features: [
       "Complete 2K25 Evolution Patch",
       "65+ Wrestlers",
@@ -68,14 +68,14 @@ export const EvolutionTiers = [
     name: "V2",
     icon: <Crown className="w-6 h-6" />,
 
-    originalPriceUSD: 49.99,
-    discountedPriceUSD: 45.99,
+    originalPriceUSD: 59.99,
+    discountedPriceUSD: 49.99,
 
-    originalPriceINR: 4999,
-    discountedPriceINR: 4599,
+    originalPriceINR: 5999,
+    discountedPriceINR: 4999,
 
     discount: 10,
-    hasDiscount: false,
+    hasDiscount: true,
 
     features: [
       "Everything in Basic",

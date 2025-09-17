@@ -7,7 +7,7 @@ export const DeluxeMetadata = {
     description: "Now featuring updated Titantrons, new loading screens, enhanced character models, 290+ attires, stronger finishers, revamped stables, new menu style, and finisher logos. Includes performance fixes to prevent freezing while keeping save data safe. Use the provided memory card with the latest PCSX2 nightly build; manual moveset setup may be needed.",
 
     playlist_id: "PLcz4DKrECTOcW8Q91dwLJMD4shvRYNbQi",
-    poster: `${HOST_URL}/poster/deluxe.png`,
+    poster: `${HOST_URL}/poster/deluxe.webp`,
 
     wrestlers_count: "65+",
     screenshots_count: 10,
@@ -22,7 +22,7 @@ export const EvolutionMetadata = {
 
     wrestlers_count: "65+",
     playlist_id: "PLcz4DKrECTOfWuM_cncBCYxqC_7mBrS1H",
-    poster: `${HOST_URL}/poster/evolution.png`,
+    poster: `${HOST_URL}/poster/evolution.webp`,
     screenshots_count: 6,
 
     patreonLink: "https://www.patreon.com/cw/lgimodz",    
@@ -49,7 +49,7 @@ export const FantasyMetadata = {
 
     wrestlers_count: "65+",
     playlist_id: "PLcz4DKrECTOcW8Q91dwLJMD4shvRYNbQi",
-    poster: `${HOST_URL}/poster/fantasy.png`,
+    poster: `${HOST_URL}/poster/fantasy.webp`,
     screenshots_count: 10,
     patreonLink: "https://www.patreon.com/cw/lgimodz",    
 }
@@ -61,7 +61,7 @@ export const KingdomMetadata = {
 
     wrestlers_count: "65+",
     playlist_id: "PLcz4DKrECTOfqZSxs_t6vRFz6C2ZY5Dvn",
-    poster: `${HOST_URL}/poster/limited.png`,
+    poster: `${HOST_URL}/poster/kingdom.webp`,
     screenshots_count: 10,
     patreonLink: "https://www.patreon.com/cw/lgimodz",    
 }

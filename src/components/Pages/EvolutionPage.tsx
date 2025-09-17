@@ -23,7 +23,8 @@ const screenshots = Array.from({ length: EvolutionMetadata.screenshots_count }).
 
 export function EvolutionPage() {
     const [currentScreenshot, setCurrentScreenshot] = useState(0)
-    const [showAllWrestlers, setShowAllWrestlers] = useState(false)
+    const [showAllWrestlersV1, setShowAllWrestlersV1] = useState(false)
+    const [showAllWrestlersV2, setShowAllWrestlersV2] = useState(false)
     const [showAllArenas, setShowAllArenas] = useState(false)
     const [videos, setVideos] = useState<Videos[]>([])
     const [PaymentScreen, setPaymentScreen] = useState(false);
@@ -165,7 +166,7 @@ export function EvolutionPage() {
                     <div className="flex flex-wrap justify-center gap-4 text-sm">
                         <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg">
                             <Users className="w-4 h-4 text-primary" />
-                            <span>{EvolutionMetadata.wrestlers_count} Wrestlers</span>
+                            <span>{EvolutionRosterV2.length} Wrestlers</span>
                         </div>
                         <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg">
                             <MapPin className="w-4 h-4 text-primary" />
@@ -222,16 +223,16 @@ export function EvolutionPage() {
                                                 <div className="space-y-2">
                                                     <div className="flex items-center justify-center gap-3">
                                                         <span className="text-lg line-through text-muted-foreground">${tier.originalPriceUSD}</span>
-                                                        <span className="text-3xl font-bold text-primary">${tier.discountedPriceUSD}</span>
+                                                        <span className="text-3xl font-bold text-green-500">${tier.discountedPriceUSD}</span>
                                                     </div>
                                                     <div className="flex items-center justify-center gap-3">
                                                         <span className="text-sm line-through text-muted-foreground">₹{tier.originalPriceINR}</span>
                                                         <span className="text-lg font-semibold">₹{tier.discountedPriceINR}</span>
                                                     </div>
-                                                    <p className="text-sm text-green-600 font-medium">
+                                                    {/* <p className="text-sm text-green-600 font-medium">
                                                         Save ${(tier.originalPriceUSD - tier.discountedPriceUSD).toFixed(2)} / ₹
                                                         {tier.originalPriceINR - tier.discountedPriceINR}
-                                                    </p>
+                                                    </p> */}
                                                 </div>
                                                 :
                                                 <div className="space-y-2">
@@ -312,7 +313,7 @@ export function EvolutionPage() {
                 <section>
                     <div className="text-center mb-8">
                         <h2 className="text-4xl font-bold mb-4">V1 Roster</h2>
-                        <p className="text-muted-foreground text-lg">{EvolutionMetadata.wrestlers_count} legendary wrestlers from different eras of WWE history</p>
+                        <p className="text-muted-foreground text-lg">{EvolutionRosterV1.length} legendary wrestlers from different eras of WWE history</p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
@@ -322,7 +323,7 @@ export function EvolutionPage() {
                     </div>
 
                     <div className="text-center">
-                        <Dialog open={showAllWrestlers} onOpenChange={setShowAllWrestlers}>
+                        <Dialog open={showAllWrestlersV1} onOpenChange={setShowAllWrestlersV1}>
                             <DialogTrigger asChild>
                                 <Button variant="outline" size="lg">
                                     <Users className="w-4 h-4 mr-2" />
@@ -346,7 +347,7 @@ export function EvolutionPage() {
                 <section>
                     <div className="text-center mb-8">
                         <h2 className="text-4xl font-bold mb-4">V2 Roster</h2>
-                        <p className="text-muted-foreground text-lg">{EvolutionMetadata.wrestlers_count} legendary wrestlers from different eras of WWE history</p>
+                        <p className="text-muted-foreground text-lg">{EvolutionRosterV2.length} legendary wrestlers from different eras of WWE history</p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
@@ -356,7 +357,7 @@ export function EvolutionPage() {
                     </div>
 
                     <div className="text-center">
-                        <Dialog open={showAllWrestlers} onOpenChange={setShowAllWrestlers}>
+                        <Dialog open={showAllWrestlersV2} onOpenChange={setShowAllWrestlersV2}>
                             <DialogTrigger asChild>
                                 <Button variant="outline" size="lg">
                                     <Users className="w-4 h-4 mr-2" />

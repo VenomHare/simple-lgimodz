@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { ChevronLeft, ChevronRight, Play, Users, MapPin, Star, Heart, Check, Crown, Zap, Fan } from "lucide-react"
 import { getShowcaseVideos } from "@/lib/utils"
-import { Credits, FantasyMetadata, KingdomMetadata, LimitedMetadata } from "@/configs/metadata"
+import { Credits, DeluxeMetadata, FantasyMetadata, KingdomMetadata, LimitedMetadata } from "@/configs/metadata"
 import { PatchDetails, Videos } from "@/lib/types"
 import { ArenaCard } from "../DisplayComponents/ArenaCard"
 import { ShowcaseVideo } from "../DisplayComponents/ShowcaseVideo"
@@ -17,6 +17,7 @@ import { KingdomPricing } from "@/configs/pricing"
 import { KingdomArenas } from "@/configs/arenas"
 import { KingdomRoster } from "@/configs/roster"
 import Link from "next/link"
+import Image from "next/image"
 
 
 
@@ -33,11 +34,11 @@ export function KingdomPage() {
         description: KingdomMetadata.description,
         thumbnail: KingdomMetadata.poster,
         price: KingdomPricing.originalPriceUSD,
-        hasDiscount:  KingdomPricing.hasDiscount,
+        hasDiscount: KingdomPricing.hasDiscount,
         discountPrice: KingdomPricing.discountedPriceUSD
     })
 
- 
+
     useEffect(() => {
         const main = async () => {
             const data = await getShowcaseVideos(KingdomMetadata.playlist_id)
@@ -59,7 +60,11 @@ export function KingdomPage() {
         <div className="min-h-screen max-w-[85svw] lg:max-w-[75svw] xl:max-w-[60svw] mx-auto my-0 bg-background">
             {/* Main Content */}
             <main className="container mx-auto px-4 py-8 space-y-12">
-               
+
+                <div className="w-full flex justify-center">
+                    <Image src={KingdomMetadata.poster} alt="Wrestler Kingdom Edition" width={175} height={250} />
+                </div>
+
                 {/* Patch Info */}
                 <section className="text-center space-y-6">
                     <div className="space-y-4">
@@ -82,16 +87,16 @@ export function KingdomPage() {
                                 <div className="space-y-2">
                                     <div className="flex items-center justify-center gap-3">
                                         <span className="text-lg line-through text-muted-foreground">${KingdomPricing.originalPriceUSD}</span>
-                                        <span className="text-3xl font-bold text-primary">${KingdomPricing.discountedPriceUSD}</span>
+                                        <span className="text-3xl font-bold text-green-500">${KingdomPricing.discountedPriceUSD}</span>
                                     </div>
                                     <div className="flex items-center justify-center gap-3">
                                         <span className="text-sm line-through text-muted-foreground">₹{KingdomPricing.originalPriceINR}</span>
                                         <span className="text-lg font-semibold">₹{KingdomPricing.discountedPriceINR}</span>
                                     </div>
-                                    <p className="text-sm text-center text-green-600 font-medium">
+                                    {/* <p className="text-sm text-center text-green-600 font-medium">
                                         Save ${(KingdomPricing.originalPriceUSD - KingdomPricing.discountedPriceUSD).toFixed(2)} / ₹
                                         {KingdomPricing.originalPriceINR - KingdomPricing.discountedPriceINR}
-                                    </p>
+                                    </p> */}
                                 </div>
                                 :
                                 <div className="space-y-1">

@@ -187,16 +187,16 @@ export function LimitedPage() {
                                 <div className="space-y-2">
                                     <div className="flex items-center justify-center gap-3">
                                         <span className="text-lg line-through text-muted-foreground">${LimitedPricing.originalPriceUSD}</span>
-                                        <span className="text-3xl font-bold text-primary">${LimitedPricing.discountedPriceUSD}</span>
+                                        <span className="text-3xl font-bold text-green-400">${LimitedPricing.discountedPriceUSD}</span>
                                     </div>
                                     <div className="flex items-center justify-center gap-3">
                                         <span className="text-sm line-through text-muted-foreground">₹{LimitedPricing.originalPriceINR}</span>
                                         <span className="text-lg font-semibold">₹{LimitedPricing.discountedPriceINR}</span>
                                     </div>
-                                    <p className="text-sm text-center text-green-600 font-medium">
+                                    {/* <p className="text-sm text-center text-green-600 font-medium">
                                         Save ${(LimitedPricing.originalPriceUSD - LimitedPricing.discountedPriceUSD).toFixed(2)} / ₹
                                         {LimitedPricing.originalPriceINR - LimitedPricing.discountedPriceINR}
-                                    </p>
+                                    </p> */}
                                 </div>
                                 :
                                 <div className="space-y-1">

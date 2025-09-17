@@ -1,0 +1,30 @@
+{
+    "name": "LGI Modz",
+    "short_name": "LGI Modz",
+    "description": "A mod that you always want. Experience enhanced features and a revamped gameplay of WWE Here Comes the Pain!",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#ff0000",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/lgimodz.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/lgimodz.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ],
+    "categories": [
+        "games",
+        "entertainment"
+    ],
+    "lang": "en",
+    "dir": "ltr"
+}
