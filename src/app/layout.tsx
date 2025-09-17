@@ -115,7 +115,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} – A Mod That You Always Want`,
+    title: `${SITE_NAME} - A Mod That You Always Want`,
     description: "Revamp your WWE Here Comes the Pain! gameplay with LGI Modz - Enhanced, Polished, Unforgettable.",
     images: [
       {

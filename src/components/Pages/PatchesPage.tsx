@@ -114,7 +114,7 @@ export default function PatchesPage() {
                         detailsLink="/deluxe"
                         description={DeluxeMetadata.description}
                         left
-                        purchaseLink="https://socialwolvez.com/app/l/uiwfZA"
+                        purchaseLink={DeluxeMetadata.downloadLink}
                         buyButtonLabel="Download Now"
                     />
                     <CustomizeBlock />

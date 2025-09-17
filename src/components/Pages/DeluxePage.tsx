@@ -15,6 +15,7 @@ import { WrestlerCard } from "../DisplayComponents/WrestlerCard"
 import { Credits, DeluxeMetadata } from "@/configs/metadata"
 import { DeluxeRoster } from "@/configs/roster"
 import Image from "next/image"
+import Link from "next/link"
 
 const screenshots = Array.from({ length: DeluxeMetadata.screenshots_count }).map((_, i) => `/${DeluxeMetadata.id}/screenshots/${i + 1}.webp`)
 
@@ -158,7 +159,7 @@ export function DeluxePage() {
                 </section>
 
                 <section>
-                    <div className="w-full flex justify-center">
+                    <Link href={DeluxeMetadata.downloadLink} target="blank" className="w-full flex justify-center">
                         <Button
                             className={`w-full md:w-4/5 lg:w-2/5 bg-primary hover:bg-primary/90`}
                             variant={"default"}
@@ -166,7 +167,7 @@ export function DeluxePage() {
                         >
                             Download Deluxe Edition
                         </Button>
-                    </div>
+                    </Link>
                 </section>
                 {/* Wrestlers Section */}
                 <section>

@@ -11,7 +11,8 @@ export const DeluxeMetadata = {
 
     wrestlers_count: "65+",
     screenshots_count: 10,
-
+    
+    downloadLink: "https://link-target.net/1237994/EcQhGc1ARsjU",
     patreonLink: "https://www.patreon.com/posts/wwe-smackdown-136320331",    
 }
 
