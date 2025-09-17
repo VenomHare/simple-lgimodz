@@ -83,7 +83,7 @@ export default function HomePage() {
                             detailsLink="/deluxe"
                             description={DeluxeMetadata.description}
                             left
-                            purchaseLink="https://socialwolvez.com/app/l/uiwfZA"
+                            purchaseLink={DeluxeMetadata.downloadLink}
                             buyButtonLabel="Download Now"
                         />
                     </div>
