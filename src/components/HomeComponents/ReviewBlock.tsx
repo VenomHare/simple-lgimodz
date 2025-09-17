@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface Props {
     pfp?: string;
     name: string;
@@ -5,7 +7,7 @@ interface Props {
     content: string;
 }
 
-export default function ({ content, name, title, pfp }: Props) {
+export default function ReviewBlock({ content, name, title, pfp }: Props) {
     return (<>
         <div className="rounded-2xl w-full min-h-[15svh] h-fit border-2 border-primary/40 shadow-md shadow-secondary overflow-clip">
             <div className="w-full h-full flex flex-col p-2">
@@ -13,11 +15,11 @@ export default function ({ content, name, title, pfp }: Props) {
 
                     <div className="w-10 h-10 rounded-full overflow-clip">
                         {
-                            pfp ? 
-                                <img src={pfp} alt="Profile Picture" className="w-full h-full object-center object-contain"/> 
-                            : 
+                            pfp ?
+                                <Image src={pfp} alt="Profile Picture" className="w-full h-full object-center object-contain" width={256} height={256} />
+                                :
                                 <div className="w-full h-full flex items-center justify-center bg-green-800 font-semibold">
-                                    {name.split(" ").map((n,i)=>i < 2 && n[0]).join("")}
+                                    {name.split(" ").map((n, i) => i < 2 && n[0]).join("")}
                                 </div>
                         }
                     </div>

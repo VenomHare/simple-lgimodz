@@ -491,22 +491,22 @@ function SuccessScreen({
 
     // 2. A more explosive fireworks effect
     function fireworks() {
-        var duration = 5 * 1000;
-        var animationEnd = Date.now() + duration;
-        var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+        const duration = 5 * 1000;
+        const animationEnd = Date.now() + duration;
+        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
         function randomInRange(min: number, max: number) {
             return Math.random() * (max - min) + min;
         }
 
-        var interval = setInterval(function () {
-            var timeLeft = animationEnd - Date.now();
+        const interval = setInterval(function () {
+            const timeLeft = animationEnd - Date.now();
 
             if (timeLeft <= 0) {
                 return clearInterval(interval);
             }
 
-            var particleCount = 50 * (timeLeft / duration);
+            const particleCount = 50 * (timeLeft / duration);
             // since particles fall down, start a bit higher than random
             confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
             confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
@@ -578,10 +578,10 @@ function SuccessScreen({
                             <CardContent className="pt-1">
                                 <div className="text-sm space-y-2">
                                     <p className="text-foreground">
-                                        Your patch will be delivered via Google Drive within <strong>2-3 business days</strong>. We'll manually
+                                        Your patch will be delivered via Google Drive within <strong>2-3 business days</strong>. We&apos;ll manually
                                         grant access to your Gmail account.
                                     </p>
-                                    <p className="text-xs text-foreground">You'll receive an email notification once access is granted.</p>
+                                    <p className="text-xs text-foreground">You&apos;ll receive an email notification once access is granted.</p>
                                 </div>
                             </CardContent>
                         </Card>
@@ -595,7 +595,7 @@ function SuccessScreen({
                             </CardHeader>
                             <CardContent className="pt-2">
                                 <div className="text-sm space-y-3">
-                                    <p className=" text-foreground">If you don't receive access within 3 business days or have any issues:</p>
+                                    <p className=" text-foreground">If you don&apos;t receive access within 3 business days or have any issues:</p>
                                     <div className="space-y-2">
                                         <Button
                                             variant="outline"
@@ -644,7 +644,7 @@ function FailedScreen({
 
             <div>
                 <h3 className="text-lg font-semibold mb-2">Payment Failed</h3>
-                <p className="text-muted-foreground">We couldn't process your payment. Please try again.</p>
+                <p className="text-muted-foreground">We couldn&apos;t process your payment. Please try again.</p>
             </div>
 
             <Card>
@@ -669,7 +669,7 @@ function FailedScreen({
                             Payment Successful but Showing Failed?
                         </div>
                         <p className="text-orange-600">
-                            If your payment went through but you're seeing this error, please contact support immediately.
+                            If your payment went through but you&apos;re seeing this error, please contact support immediately.
                         </p>
                         <Button
                             variant="outline"
@@ -714,7 +714,7 @@ function UPIScreen({
             </div>
 
             <div>
-                <h3 className="text-lg font-semibold mb-2">Need UPI Payment Help? <br /> You're Just a Message Away!</h3>
+                <h3 className="text-lg font-semibold mb-2">Need UPI Payment Help? <br /> You&apos;re Just a Message Away!</h3>
                 <p className="text-muted-foreground">UPI payments are handled via support, simply contact us, and we,ll respond super quickly to assist you.</p>
             </div>
 

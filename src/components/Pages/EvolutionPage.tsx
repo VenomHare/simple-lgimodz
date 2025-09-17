@@ -6,9 +6,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { ChevronLeft, ChevronRight, Play, Users, MapPin, Star, Heart, Check, Crown, Zap } from "lucide-react"
+import { ChevronLeft, ChevronRight, Play, Users, MapPin, Star, Heart, Check, Zap } from "lucide-react"
 import { Credits, EvolutionMetadata } from "@/configs/metadata"
-import { EvolutionTiers, LimitedPricing } from "@/configs/pricing"
+import { EvolutionTiers } from "@/configs/pricing"
 import { getShowcaseVideos } from "@/lib/utils"
 import { PatchDetails, Videos } from "@/lib/types"
 import { EvolutionArenas } from "@/configs/arenas"
@@ -18,6 +18,7 @@ import { WrestlerCard } from "../DisplayComponents/WrestlerCard"
 import { EvolutionRosterV1, EvolutionRosterV2 } from "@/configs/roster"
 import PaymentPopup from "../PaymentPopup"
 import Link from "next/link"
+import Image from "next/image"
 
 const screenshots = Array.from({ length: EvolutionMetadata.screenshots_count }).map((_, i) => `/${EvolutionMetadata.id}/screenshots/${i + 1}.webp`)
 
@@ -70,10 +71,12 @@ export function EvolutionPage() {
                 {/* Screenshot Carousel */}
                 <section className="relative">
                     <div className="relative aspect-[2/1] rounded-xl overflow-hidden bg-card">
-                        <img
+                        <Image
                             src={screenshots[currentScreenshot] || "/placeholder.svg"}
                             alt={`Screenshot ${currentScreenshot + 1}`}
                             className="w-full h-full object-cover"
+                            width={1920}
+                            height={1080}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
 

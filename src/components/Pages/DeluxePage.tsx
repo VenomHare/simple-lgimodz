@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { ChevronLeft, ChevronRight, Play, Users, MapPin, Star, Heart, Check, Crown, Zap } from "lucide-react"
+import { ChevronLeft, ChevronRight, Play, Users, MapPin, Star, Heart } from "lucide-react"
 import { getShowcaseVideos } from "@/lib/utils"
 import { Videos } from "@/lib/types"
 import { ArenaCard } from "../DisplayComponents/ArenaCard"
@@ -14,13 +14,9 @@ import { ShowcaseVideo } from "../DisplayComponents/ShowcaseVideo"
 import { WrestlerCard } from "../DisplayComponents/WrestlerCard"
 import { Credits, DeluxeMetadata } from "@/configs/metadata"
 import { DeluxeRoster } from "@/configs/roster"
+import Image from "next/image"
 
-
-
-const screenshots = Array.from({length: DeluxeMetadata.screenshots_count}).map((_, i) => `/${DeluxeMetadata.id}/screenshots/${i+1}.webp`)
-
-
-
+const screenshots = Array.from({ length: DeluxeMetadata.screenshots_count }).map((_, i) => `/${DeluxeMetadata.id}/screenshots/${i + 1}.webp`)
 
 export function DeluxePage() {
     const [currentScreenshot, setCurrentScreenshot] = useState(0)
@@ -50,10 +46,12 @@ export function DeluxePage() {
                 {/* Screenshot Carousel */}
                 <section className="relative">
                     <div className="relative aspect-[2/1] rounded-xl overflow-hidden bg-card">
-                        <img
+                        <Image
                             src={screenshots[currentScreenshot] || "/placeholder.svg"}
                             alt={`Screenshot ${currentScreenshot + 1}`}
                             className="w-full h-full object-cover"
+                            width={1920}
+                            height={1080}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
 
@@ -197,7 +195,7 @@ export function DeluxePage() {
                                 </DialogHeader>
                                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mt-4">
                                     {DeluxeRoster.map((wrestler) => (
-                                        <WrestlerCard wrestler={wrestler} key={wrestler.id} />    
+                                        <WrestlerCard wrestler={wrestler} key={wrestler.id} />
                                     ))}
                                 </div>
                             </DialogContent>

@@ -1,6 +1,7 @@
 import { Videos } from "@/lib/types";
 import { Card, CardContent } from "../ui/card";
 import { Play } from "lucide-react";
+import Image from "next/image";
 
 export function ShowcaseVideo({ video }: { video: Videos }) {
     return (
@@ -10,10 +11,12 @@ export function ShowcaseVideo({ video }: { video: Videos }) {
                     className="relative aspect-video rounded-t-lg overflow-hidden"
                     onClick={() => window.open(video.url, "_blank")}
                 >
-                    <img
+                    <Image
                         src={video.thumbnail || "/placeholder.svg"}
                         alt={video.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        width={1920}
+                        height={1080}
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
                     <div className="absolute inset-0 flex items-center justify-center">

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "../ui/button";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
+// import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
 import Link from "next/link";
 
 interface Props {
@@ -17,7 +17,7 @@ interface Props {
 }
 
 
-export default function ({ loading, id, poster, title, description, left = true, detailsLink, purchaseLink, onPurchase, buyButtonLabel = "Buy Now" }: Props) {
+export default function ProductListItem({ loading, poster, title, description, left = true, detailsLink, purchaseLink, onPurchase, buyButtonLabel = "Buy Now" }: Props) {
 
 
     if (loading) {

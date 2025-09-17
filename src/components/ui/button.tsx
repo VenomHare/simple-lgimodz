@@ -56,7 +56,7 @@ function Button({
 
   return (
     <Comp
-      onClick={() => { push && router.push(push) }}
+      onClick={() => { if (push) router.push(push) }}
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}

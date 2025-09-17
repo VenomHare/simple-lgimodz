@@ -1,10 +1,10 @@
 import axios, { AxiosError } from "axios";
 import { NextRequest, NextResponse } from "next/server";
-import { endpoint_uri, fetchAccessToken, supabase } from "@/lib/server";
+import { endpoint_uri, fetchAccessToken } from "@/lib/server";
 import { FantasyPricing, EvolutionTiers, KingdomPricing, LimitedPricing } from "@/configs/pricing";
 
 //Paypal Payment Processing 
-export const AvailablePatches = [
+const AvailablePatches = [
     {
         id: "limited",
         price: LimitedPricing.hasDiscount ? LimitedPricing.discountedPriceUSD : LimitedPricing.originalPriceUSD

@@ -7,7 +7,7 @@ interface Props{
     Icon: LucideIcon
 }
 
-export default function({title, description, Icon}:Props){
+export default function HomePageListItem({title, description, Icon}:Props){
     return (<>
         <div className="flex justify-start gap-4 items-start mt-4">
             <Button variant={"outline"} size={"icon"} className="font-bold">

@@ -16,7 +16,6 @@ export default function DiscountPopup() {
   const [timeLeft, setTimeLeft] = useState("")
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
     // Check if popup was already shown in this session
     // const popupShown = sessionStorage.getItem("discountPopupShown")
     const popupShown = false;
@@ -25,7 +24,7 @@ export default function DiscountPopup() {
       // Random delay between 5-15 seconds
       const delay = Math.random() * 10000 + 5000
 
-      timeout = setTimeout(() => {
+      setTimeout(() => {
         // Select random offer
         const randomOffer = discountOffers[Math.floor(Math.random() * discountOffers.length)]
         setCurrentOffer(randomOffer)

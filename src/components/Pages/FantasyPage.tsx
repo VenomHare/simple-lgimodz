@@ -8,7 +8,7 @@ import { FantasyPricing } from "@/configs/pricing"
 import Image from "next/image"
 import { FantasyMetadata } from "@/configs/metadata"
 import { useState } from "react"
-import { Star  } from "lucide-react"
+import { Star } from "lucide-react"
 import Link from "next/link"
 import { PatchDetails } from "@/lib/types"
 
@@ -20,13 +20,13 @@ import { PatchDetails } from "@/lib/types"
 
 export function FantasyPage() {
     const [PaymentScreen, setPaymentScreen] = useState(false);
-    const [currentPatch, setCurrentPatch] = useState<PatchDetails>({
+    const [currentPatch] = useState<PatchDetails>({
         id: FantasyMetadata.id,
         name: FantasyMetadata.label,
         description: FantasyMetadata.description,
         thumbnail: FantasyMetadata.poster,
         price: FantasyPricing.originalPriceUSD,
-        hasDiscount:  FantasyPricing.hasDiscount,
+        hasDiscount: FantasyPricing.hasDiscount,
         discountPrice: FantasyPricing.discountedPriceUSD
     })
 

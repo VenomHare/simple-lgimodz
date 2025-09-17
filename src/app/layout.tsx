@@ -22,7 +22,7 @@ const schibsted_Grotesk = Schibsted_Grotesk({
   variable: "--font-schibsted",
   subsets: ["latin"]
 });
-const antonFont = ({
+const antonFont = Anton({
   variable: "--font-anton",
   weight: "400",
   subsets: ["latin"]
@@ -255,7 +255,7 @@ export default function RootLayout({
         <DiscountPopup/>
         {children}
         <Footer />
-        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
       </body>
     </html>
   );

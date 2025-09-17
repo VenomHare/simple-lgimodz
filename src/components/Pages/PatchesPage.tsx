@@ -7,7 +7,7 @@ import { useState } from "react";
 import { FantasyPricing, KingdomPricing, LimitedPricing } from "@/configs/pricing";
 import { PatchDetails } from "@/lib/types";
 
-export default function () {
+export default function PatchesPage() {
 
     const [PaymentScreen, setPaymentScreen] = useState(false);
     const [currentPatch, setCurrentPatch] = useState<PatchDetails>({

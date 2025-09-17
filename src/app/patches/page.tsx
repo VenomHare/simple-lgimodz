@@ -1,6 +1,5 @@
 import PatchesPage from "@/components/Pages/PatchesPage";
 
-export default function () {
-
+export default function Patches() {
     return (<PatchesPage/>)
 }

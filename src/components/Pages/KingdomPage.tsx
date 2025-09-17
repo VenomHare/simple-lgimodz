@@ -4,26 +4,15 @@
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { ChevronLeft, ChevronRight, Play, Users, MapPin, Star, Heart, Check, Crown, Zap, Fan } from "lucide-react"
+import { Star } from "lucide-react"
 import { getShowcaseVideos } from "@/lib/utils"
-import { Credits, DeluxeMetadata, FantasyMetadata, KingdomMetadata, LimitedMetadata } from "@/configs/metadata"
+import {  KingdomMetadata } from "@/configs/metadata"
 import { PatchDetails, Videos } from "@/lib/types"
-import { ArenaCard } from "../DisplayComponents/ArenaCard"
 import { ShowcaseVideo } from "../DisplayComponents/ShowcaseVideo"
-import { WrestlerCard } from "../DisplayComponents/WrestlerCard"
 import PaymentPopup from "../PaymentPopup"
 import { KingdomPricing } from "@/configs/pricing"
-import { KingdomArenas } from "@/configs/arenas"
-import { KingdomRoster } from "@/configs/roster"
 import Link from "next/link"
 import Image from "next/image"
-
-
-
-
-const screenshots = Array.from({ length: KingdomMetadata.screenshots_count }).map((_, i) => `/${KingdomMetadata.id}/screenshots/${i + 1}.webp`)
-
 
 export function KingdomPage() {
     const [videos, setVideos] = useState<Videos[]>([])

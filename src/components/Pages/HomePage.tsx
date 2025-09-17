@@ -1,9 +1,8 @@
 "use client";
-import { Archive, Palette, Shapes, Sliders, SlidersHorizontal, WandSparkles } from "lucide-react";
+import { Archive, Palette, Sliders } from "lucide-react";
 import HomePageListItem from "../HomeComponents/HomePageListItem";
 import { Button } from "../ui/button";
 import ReviewBlock from "../HomeComponents/ReviewBlock";
-import Footer from "../Footer";
 import ProductListItem from "../HomeComponents/ProductListItem";
 import { DeluxeMetadata, EvolutionMetadata, LimitedMetadata } from "@/configs/metadata";
 import { useState } from "react";
@@ -12,7 +11,7 @@ import { LimitedPricing } from "@/configs/pricing";
 import BasicsSection from "../DisplayComponents/BasicsSection";
 import { PatchDetails } from "@/lib/types";
 
-export default function () {
+export default function HomePage() {
     const [PaymentScreen, setPaymentScreen] = useState(false);
     const [currentPatch, setCurrentPatch] = useState<PatchDetails>({
         id: LimitedMetadata.id,
@@ -39,7 +38,7 @@ export default function () {
             <div className="w-[85svw] lg:w-[75svw] xl:w-[60svw] ">
                 <div className="w-full h-[60svh] md:h-[75svh] flex flex-col items-center justify-center gap-6">
                     <h1 className="text-5xl md:text-6xl font-neon text-center tracking-wider flex gap-3">LGI <span className="text-primary">Modz</span></h1>
-                    <h2 className="text-lg md:text-2xl font-playwrite text-center">"A Mod that you always want"</h2>
+                    <h2 className="text-lg md:text-2xl font-playwrite text-center">&quot;A Mod that you always want&quot;</h2>
                     <Button push="/patches" className="w-[50svw] sm:w-[30svw] md:w-[30svw] xl:w-[20svw] 2xl:w-[10svw] md:text-xl md:mt-5 md:p-2" size={"lg"}>Explore Patches</Button>
                 </div>
 

@@ -1,5 +1,5 @@
 import { DiscountOffer } from "@/lib/types"
-import { Crown, Star, Zap } from "lucide-react"
+import { Crown, Star } from "lucide-react"
 
 
 //UI

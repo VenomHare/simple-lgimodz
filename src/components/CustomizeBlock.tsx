@@ -2,8 +2,8 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import Image from "next/image";
 
-const discordInviteLink = "https://discord.gg/wMrBMKzYFX" // Replace with your actual Discord link
-export default function () {
+// const discordInviteLink = "https://discord.gg/wMrBMKzYFX" // Replace with your actual Discord link
+export default function CustomizeBlock() {
     return (<>
         <div className="w-full lg:w-[90%] flex flex-col items-center md:flex-row-reverse gap-4 mt-15 border-3 rounded-xl py-15 md:py-10 px-10 ">
             <div className="w-[80%] h-[25svh] md:w-[75%] lg:w-[50%] xl:w-1/2 mx-3">
