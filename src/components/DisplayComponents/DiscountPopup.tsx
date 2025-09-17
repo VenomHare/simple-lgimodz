@@ -14,6 +14,7 @@ export default function DiscountPopup() {
   const [isOpen, setIsOpen] = useState(false)
   const [currentOffer, setCurrentOffer] = useState<DiscountOffer | null>(null)
   const [timeLeft, setTimeLeft] = useState("")
+  const [expiryTime, setExpiryTime] = useState<number | null>(null)
 
   useEffect(() => {
     // Check if popup was already shown in this session
@@ -36,16 +37,26 @@ export default function DiscountPopup() {
 
   useEffect(() => {
     if (currentOffer && isOpen) {
+      if (expiryTime === null) {
+        const totalMs = currentOffer.expiresIn * 60 * 60 * 1000
+        const minimumMs = Math.min(totalMs, 60 * 1000) // ensure at least 1 minute if possible
+        const randomMs = minimumMs + Math.floor(Math.random() * Math.max(1, totalMs - minimumMs))
+        setExpiryTime(Date.now() + randomMs)
+        return
+      }
+
       const updateTimer = () => {
-        const now = new Date().getTime()
-        const expiryTime = now + currentOffer.expiresIn * 60 * 60 * 1000
+        const now = Date.now()
         const timeRemaining = expiryTime - now
 
         if (timeRemaining > 0) {
           const hours = Math.floor(timeRemaining / (1000 * 60 * 60))
           const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60))
           const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000)
-          setTimeLeft(`${hours}h ${minutes}m ${seconds}s`)
+          const hh = String(hours)
+          const mm = String(minutes).padStart(2, '0')
+          const ss = String(seconds).padStart(2, '0')
+          setTimeLeft(`${hh}:${mm}:${ss}`)
         } else {
           setTimeLeft("Expired")
         }
@@ -54,8 +65,11 @@ export default function DiscountPopup() {
       updateTimer()
       const interval = setInterval(updateTimer, 1000)
       return () => clearInterval(interval)
+    } else {
+      setExpiryTime(null)
+      setTimeLeft("")
     }
-  }, [currentOffer, isOpen])
+  }, [currentOffer, isOpen, expiryTime])
 
   if (!currentOffer) return null
 

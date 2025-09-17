@@ -1,16 +1,35 @@
 import { DiscountOffer } from "@/lib/types"
 import { Crown, Star } from "lucide-react"
+import { EvolutionRosterV1 } from "./roster"
+import { EvolutionArenas } from "./arenas"
 
 
 //UI
 export const discountOffers: DiscountOffer[] = [
-  
+  {
+    name: "Limited Time Launch Offer",
+    discount: 10,
+    originalPrice: 44.99,
+    discountedPrice: 39.99,
+    expiresIn: 12,
+    description: "Grab the Evolution Patch with Limited Time Launch Offer",
+    sectionUrl: "/evolution#tiers"
+  },
+  {
+    name: "Pre Order Offer",
+    discount: 10,
+    originalPrice: 49.99,
+    discountedPrice: 44.99,
+    expiresIn: 12,
+    description: "Pre Order Fantasy Edition for exclusive discount",
+    sectionUrl: "/fantasy"
+  },
 ]
 
 export const LimitedPricing = {
   originalPriceUSD: 34.99,
   discountedPriceUSD: 24.99,
-  
+
   originalPriceINR: 2500,
   discountedPriceINR: 1800,
 
@@ -21,7 +40,7 @@ export const LimitedPricing = {
 export const FantasyPricing = {
   originalPriceUSD: 49.99,
   discountedPriceUSD: 44.99,
-  
+
   originalPriceINR: 5000,
   discountedPriceINR: 4500,
 
@@ -32,7 +51,7 @@ export const FantasyPricing = {
 export const KingdomPricing = {
   originalPriceUSD: 49.99,
   discountedPriceUSD: 44.99,
-  
+
   originalPriceINR: 5000,
   discountedPriceINR: 4500,
 
@@ -55,8 +74,8 @@ export const EvolutionTiers = [
     hasDiscount: true,
     features: [
       "Complete 2K25 Evolution Patch",
-      "65+ Wrestlers",
-      "15 Arenas",
+      `${EvolutionRosterV1.length}+ Wrestlers`,
+      `${EvolutionArenas.filter(i => i.name == "V1" ).length} Arenas`,
       "Enhanced Graphics",
       "Basic Installation Guide",
       "Community Discord Access",
@@ -80,7 +99,7 @@ export const EvolutionTiers = [
     features: [
       "Everything in Basic",
       "Exclusive Bonus Wrestlers (10+)",
-      "Premium Arenas Pack (5+)",
+      "Extra Premium Arenas Pack (10+)",
       "Custom Entrance Music",
       "Priority Support",
       "Early Access to Updates",
