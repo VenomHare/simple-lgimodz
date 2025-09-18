@@ -5,6 +5,7 @@ import localFont from 'next/font/local'
 import Appbar from "@/components/Appbar";
 import Footer from "@/components/Footer";
 import DiscountPopup from "@/components/DisplayComponents/DiscountPopup";
+import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -255,6 +256,7 @@ export default function RootLayout({
         <DiscountPopup/>
         {children}
         <Footer />
+        <Analytics/>
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
       </body>
     </html>

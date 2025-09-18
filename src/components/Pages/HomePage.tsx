@@ -89,7 +89,7 @@ export default function HomePage() {
                     </div>
                 </div>
 
-                <div className="w-full flex flex-col items-center gap-4 mb-5 mt-[12dvh]">
+                <div className="w-full flex flex-col items-center gap-4 my-[20dvh]">
                     <h3 className="text-2xl font-semibold font-playwrite">We Offer </h3>
                     <div className="w-full flex flex-col gap-4 md:w-[75%] ">
                         <HomePageListItem

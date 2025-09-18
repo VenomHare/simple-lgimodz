@@ -6,8 +6,8 @@ import Link from "next/link";
 export default function Footer() {
     return (<>
         <div className="w-[100svw] min-h-[10svh] border-t-2 border-primary flex justify-center mt-10">
-            <div className="w-[85svw] lg:w-[75svw] xl:w-[60svw]  h-full flex flex-col md:flex-row py-10 gap-10">
-                <div className="flex flex-col w-full items-center">
+            <div className="w-[85svw] lg:w-[75svw] xl:w-[60svw]  h-full flex flex-col items-center md:flex-row py-10 gap-10">
+                <div className="flex flex-col gap-4 w-full items-center">
                     <div className="w-full h-full flex items-center gap-4 px-4">
                         <Image src="/lgimodz.webp" alt="lgimodz" width={128} height={128}></Image>
                         <div className="flex flex-col gap-4">
