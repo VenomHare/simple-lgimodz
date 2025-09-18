@@ -46,7 +46,7 @@ export const LimitedMetadata = {
 export const FantasyMetadata = {
     id: "fantasy",
     label: "Fantasy Edition",
-    description: `Step into a whole new world of chaos and imagination with LGI Modz: Fantasy Edition. This patch brings your favorite heroes, legends, and icons straight into the fight. From swinging through the streets as Spider-Man, unleashing Saiyan power with Goku and Vegeta, or scoring goals as Messi and Ronaldo – the Fantasy Edition makes it all possible. Join forces with Miles Morales, Tom Holland’s Spidey, anime giants like Luffy and Eren Yeager, and classics like CJ and Big Smoke from Grove Street. Whether you’re a superhero fan, anime lover, or football fanatic, this patch is built to blow your mind with unlimited crossovers. This isn’t just a mod – it’s your ticket to a multiverse of fantasy battles where anything is possible.`,
+    description: `Unleash your imagination with the HCTP Fantasy Edition! Featuring a dream roster of legends, superheroes, and fantasy icons, stunning HD arenas, over-the-top entrances, wild new moves, and a fully reimagined UI. Relive the PS2 classic with a larger-than-life twist that takes HCTP beyond reality! \n Step into a world beyond reality with the HCTP Fantasy Edition!\nWhere legends, icons, and dream warriors collide in a roster built straight from imagination. Enter breathtaking HD arenas, witness explosive entrances, unleash never-before-seen moves, and navigate a bold new interface crafted for the ultimate experience.\n\nThis isn't just HCTP — it's wrestling without limits, where fantasy becomes legend and every match is a battle for greatness!`,
 
     wrestlers_count: "65+",
     playlist_id: "PLcz4DKrECTOcW8Q91dwLJMD4shvRYNbQi",
@@ -58,7 +58,7 @@ export const FantasyMetadata = {
 export const KingdomMetadata = {
     id: "kingdom",
     label: "Wrestler Kingdom",
-    description: "Experience the next generation of HCTP with the 2K25 Evolution Patch!! Featuring a fully updated 2025 roster, HD arenas, authentic entrances, new moves, and a revamped UI. Relive the PS2 classic with a modern twist!",
+    description: `From the electric Tokyo Dome to the grandest stage of them all, this patch unites AEW icons, NJPW warriors, and WWE Hall of Fame legends in one epic roster. Witness jaw-dropping HD arenas, authentic entrances, signature finishers, and a sleek new interface all built on the timeless HCTP gameplay you love. \n \n This isn't just a patch… it's the battle of generations, promotions, and legacies  where champions are made and legends never die!`,
 
     wrestlers_count: "65+",
     playlist_id: "PLcz4DKrECTOfqZSxs_t6vRFz6C2ZY5Dvn",
