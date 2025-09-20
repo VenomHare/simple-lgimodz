@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { useRouter } from 'next/navigation'
-const limited = () => {
+const Limited = () => {
   
   const router = useRouter();
 
@@ -19,4 +19,4 @@ const limited = () => {
   )
 }
 
-export default limited
+export default Limited

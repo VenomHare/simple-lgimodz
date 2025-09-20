@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-const deluxe = () => {
+const Deluxe = () => {
   
   const router = useRouter();
 
@@ -21,4 +21,4 @@ const deluxe = () => {
   )
 }
 
-export default deluxe
+export default Deluxe

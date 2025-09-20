@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-const evolution = () => {
+const Evolution = () => {
   
   const router = useRouter();
 
@@ -21,4 +21,4 @@ const evolution = () => {
   )
 }
 
-export default evolution
+export default Evolution

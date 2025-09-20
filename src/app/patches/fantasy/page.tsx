@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { useRouter } from 'next/navigation'
-const fantasy = () => {
+const Fantasy = () => {
   
   const router = useRouter();
 
@@ -19,4 +19,4 @@ const fantasy = () => {
   )
 }
 
-export default fantasy
+export default Fantasy
