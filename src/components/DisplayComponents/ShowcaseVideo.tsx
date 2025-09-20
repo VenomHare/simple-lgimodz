@@ -11,7 +11,7 @@ export function ShowcaseVideo({ video }: { video: Videos }) {
                     className="relative aspect-video rounded-t-lg overflow-hidden"
                     onClick={() => window.open(video.url, "_blank")}
                 >
-                    <Image
+                    <img
                         src={video.thumbnail || "/placeholder.svg"}
                         alt={video.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"

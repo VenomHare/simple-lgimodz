@@ -6,7 +6,7 @@ export function WrestlerCard({ wrestler }: { wrestler: Wrestler }) {
     return (<Card key={wrestler.id} className="group hover:scale-105 transition-transform duration-200">
         <CardContent className="p-4">
             <div className="aspect-[3/4] rounded-lg overflow-visible mb-3">
-                <Image
+                <img
                     src={`/roster/${wrestler.image}` || "/placeholder.svg"}
                     alt={wrestler.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"

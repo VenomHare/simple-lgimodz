@@ -7,7 +7,7 @@ export function ArenaCard({arena}:{arena: Arena}) {
         <Card key={arena.id} className="group">
             <CardContent className="p-0">
                 <div className="aspect-[4/3] rounded-t-lg overflow-visible">
-                    <Image
+                    <img
                         src={arena.image || "/placeholder.svg"}
                         alt={arena.name}
                         className="w-full h-full object-cover"
