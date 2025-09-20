@@ -3,18 +3,13 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 const Deluxe = () => {
-  
+
   const router = useRouter();
 
   useEffect(() => {
-    
     router.push("/deluxe");
-    
-    return () => {
-      
-    }
-  }, [])
-  
+  }, [router])
+
 
   return (
     <div></div>

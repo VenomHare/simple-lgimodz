@@ -7,13 +7,8 @@ const Evolution = () => {
   const router = useRouter();
 
   useEffect(() => {
-    
     router.push("/evolution");
-    
-    return () => {
-      
-    }
-  }, [])
+  }, [router])
   
 
   return (

@@ -6,12 +6,8 @@ const Limited = () => {
   const router = useRouter();
 
   useEffect(() => {
-    
     router.push("/limited")
-    return () => {
-      
-    }
-  }, [])
+  }, [router])
   
 
   return (

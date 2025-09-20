@@ -24,7 +24,7 @@ export const EvolutionMetadata = {
     wrestlers_count: "65+",
     playlist_id: "PLcz4DKrECTOfWuM_cncBCYxqC_7mBrS1H",
     poster: `${HOST_URL}/poster/evolution.webp`,
-    screenshots_count: 6,
+    screenshots_count: 7,
 
     patreonLink: "https://www.patreon.com/cw/lgimodz",    
 }
@@ -37,7 +37,7 @@ export const LimitedMetadata = {
     wrestlers_count: "65+",
     playlist_id: "PLcz4DKrECTOegQXsvTXRSuwNDB5TQPPbx",
     poster: `${HOST_URL}/poster/limited.png`,
-    screenshots_count: 10,
+    screenshots_count: 11,
 
     patreonLink: "https://www.patreon.com/posts/wwe-here-comes-133731425",
 }

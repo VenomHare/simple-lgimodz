@@ -16,7 +16,7 @@ export default function PatchesPage() {
         description: LimitedMetadata.description,
         thumbnail: LimitedMetadata.poster,
         price: LimitedPricing.originalPriceUSD,
-        hasDiscount:  LimitedPricing.hasDiscount,
+        hasDiscount: LimitedPricing.hasDiscount,
         discountPrice: LimitedPricing.discountedPriceUSD
     })
 
@@ -37,6 +37,16 @@ export default function PatchesPage() {
             <p className="text-lg font-semibold text-gray-400 font-schibsted text-center text-balance mt-3" >See what our customers love about our products.</p>
             <div className="w-full flex flex-col gap-0 items-center">
                 <div className="w-[85svw] lg:w-[75svw] xl:w-[60svw] min-h-[50svh] flex flex-col items-center">
+                    <ProductListItem
+                        id={DeluxeMetadata.id}
+                        poster={DeluxeMetadata.poster}
+                        title={DeluxeMetadata.label}
+                        detailsLink="/deluxe"
+                        description={DeluxeMetadata.description}
+                        left={false}
+                        purchaseLink={DeluxeMetadata.downloadLink}
+                        buyButtonLabel="Download Now"
+                    />
                     <ProductListItem
                         id={EvolutionMetadata.id}
                         poster={EvolutionMetadata.poster}
@@ -61,7 +71,7 @@ export default function PatchesPage() {
                                 description: LimitedMetadata.description,
                                 thumbnail: LimitedMetadata.poster,
                                 price: LimitedPricing.originalPriceUSD,
-                                hasDiscount:  LimitedPricing.hasDiscount,
+                                hasDiscount: LimitedPricing.hasDiscount,
                                 discountPrice: LimitedPricing.discountedPriceUSD
                             });
                             setPaymentScreen(true);
@@ -80,7 +90,7 @@ export default function PatchesPage() {
                                 description: FantasyMetadata.description,
                                 thumbnail: FantasyMetadata.poster,
                                 price: FantasyPricing.originalPriceUSD,
-                                hasDiscount:  FantasyPricing.hasDiscount,
+                                hasDiscount: FantasyPricing.hasDiscount,
                                 discountPrice: FantasyPricing.discountedPriceUSD
                             });
                             setPaymentScreen(true);
@@ -101,21 +111,12 @@ export default function PatchesPage() {
                                 description: KingdomMetadata.description,
                                 thumbnail: KingdomMetadata.poster,
                                 price: KingdomPricing.originalPriceUSD,
-                                hasDiscount:  KingdomPricing.hasDiscount,
+                                hasDiscount: KingdomPricing.hasDiscount,
                                 discountPrice: KingdomPricing.discountedPriceUSD
                             });
                             setPaymentScreen(true);
                         }}
-                    />
-                    <ProductListItem
-                        id={DeluxeMetadata.id}
-                        poster={DeluxeMetadata.poster}
-                        title={DeluxeMetadata.label}
-                        detailsLink="/deluxe"
-                        description={DeluxeMetadata.description}
-                        left
-                        purchaseLink={DeluxeMetadata.downloadLink}
-                        buyButtonLabel="Download Now"
+                        buyButtonLabel="Pre Order Now"
                     />
                     <CustomizeBlock />
                 </div>

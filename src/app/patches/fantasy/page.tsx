@@ -6,12 +6,8 @@ const Fantasy = () => {
   const router = useRouter();
 
   useEffect(() => {
-    
     router.push("/fantasy")
-    return () => {
-      
-    }
-  }, [])
+  }, [router])
   
 
   return (
