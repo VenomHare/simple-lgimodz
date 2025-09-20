@@ -1,6 +1,5 @@
 import { Arena } from "@/lib/types";
 import { Card, CardContent } from "../ui/card";
-import Image from "next/image";
 
 export function ArenaCard({arena}:{arena: Arena}) {
     return (

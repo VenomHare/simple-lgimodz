@@ -1,6 +1,5 @@
 import { Wrestler } from "@/lib/types";
 import { Card, CardContent } from "../ui/card";
-import Image from "next/image";
 
 export function WrestlerCard({ wrestler }: { wrestler: Wrestler }) {
     return (<Card key={wrestler.id} className="group hover:scale-105 transition-transform duration-200">
