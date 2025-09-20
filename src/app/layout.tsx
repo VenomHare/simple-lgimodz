@@ -120,13 +120,6 @@ export const metadata: Metadata = {
     description: "Revamp your WWE Here Comes the Pain! gameplay with LGI Modz - Enhanced, Polished, Unforgettable.",
     images: [
       {
-        url: '/lgimodz.png',
-        width: 1200,
-        height: 630,
-        alt: `${SITE_NAME} Cover Image`,
-        type: 'image/png',
-      },
-      {
         url: '/lgimodz.png', // Optional square image
         width: 400,
         height: 400,
