@@ -158,7 +158,7 @@ export function EvolutionPage() {
                     <div className="space-y-4">
                         <Badge variant="secondary" className="text-lg px-4 py-2">
                             <Star className="w-4 h-4 mr-2" />
-                            Featured Mod
+                            Available for Pre Order
                         </Badge>
                         <h1 className="text-5xl font-bold text-balance">{EvolutionMetadata.label}</h1>
                         <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
@@ -179,6 +179,9 @@ export function EvolutionPage() {
                             <Play className="w-4 h-4 text-primary" />
                             <span>Enhanced Graphics</span>
                         </div>
+                        <Badge variant="default" className="text-lg mt-4 px-4 py-2">
+                            <h2 className="text-3xl font-schibsted font-semibold text-balance">Release Date : 1st October</h2>
+                        </Badge>
                     </div>
                 </section>
 
@@ -186,7 +189,7 @@ export function EvolutionPage() {
                     <div className="text-center mb-12 ">
                         <Badge variant="destructive" className="text-lg px-4 py-2 mb-4">
                             <Zap className="w-4 h-4 mr-2" />
-                            Limited Time Offer
+                            Pre Order Offer
                         </Badge>
                         <h2 className="text-4xl font-bold mb-4">Choose Your Package</h2>
                         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -275,7 +278,7 @@ export function EvolutionPage() {
                                             setPaymentScreen(true)
                                         }}
                                     >
-                                        Purchase {tier.name}
+                                        Pre Order {tier.name}
                                     </Button>
                                 </CardContent>
                             </Card>

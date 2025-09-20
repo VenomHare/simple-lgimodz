@@ -7,7 +7,7 @@ import { EvolutionArenas } from "./arenas"
 //UI
 export const discountOffers: DiscountOffer[] = [
   {
-    name: "Limited Time Launch Offer",
+    name: "Pre Order Offer",
     discount: 10,
     originalPrice: 44.99,
     discountedPrice: 39.99,
@@ -16,7 +16,7 @@ export const discountOffers: DiscountOffer[] = [
     sectionUrl: "/evolution#tiers"
   },
   {
-    name: "Pre Order Offer",
+    name: "Super Fan Offer",
     discount: 10,
     originalPrice: 49.99,
     discountedPrice: 44.99,
