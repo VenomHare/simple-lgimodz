@@ -18,7 +18,6 @@ import { WrestlerCard } from "../DisplayComponents/WrestlerCard"
 import { EvolutionRosterV1, EvolutionRosterV2 } from "@/configs/roster"
 import PaymentPopup from "../PaymentPopup"
 import Link from "next/link"
-import Image from "next/image"
 
 const screenshots = Array.from({ length: EvolutionMetadata.screenshots_count }).map((_, i) => `/${EvolutionMetadata.id}/screenshots/${i + 1}.webp`)
 

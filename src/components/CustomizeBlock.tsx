@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
-import Image from "next/image";
 
 // const discordInviteLink = "https://discord.gg/wMrBMKzYFX" // Replace with your actual Discord link
 export default function CustomizeBlock() {

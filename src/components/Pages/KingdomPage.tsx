@@ -12,7 +12,6 @@ import { ShowcaseVideo } from "../DisplayComponents/ShowcaseVideo"
 import PaymentPopup from "../PaymentPopup"
 import { KingdomPricing } from "@/configs/pricing"
 import Link from "next/link"
-import Image from "next/image"
 
 export function KingdomPage() {
     const [videos, setVideos] = useState<Videos[]>([])

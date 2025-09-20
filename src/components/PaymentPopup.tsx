@@ -10,7 +10,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import axios, { AxiosResponse } from "axios"
-import Image from "next/image"
 import { PatchDetails, PaymentPopupProps, PaymentScreens, UserInfo } from "@/lib/types"
 
 // Declare confetti as any to avoid TypeScript errors

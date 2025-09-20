@@ -14,7 +14,6 @@ import { ShowcaseVideo } from "../DisplayComponents/ShowcaseVideo"
 import { WrestlerCard } from "../DisplayComponents/WrestlerCard"
 import { Credits, DeluxeMetadata } from "@/configs/metadata"
 import { DeluxeRoster } from "@/configs/roster"
-import Image from "next/image"
 import Link from "next/link"
 
 const screenshots = Array.from({ length: DeluxeMetadata.screenshots_count }).map((_, i) => `/${DeluxeMetadata.id}/screenshots/${i + 1}.webp`)

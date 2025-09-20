@@ -17,7 +17,6 @@ import { WrestlerCard } from "../DisplayComponents/WrestlerCard"
 import { LimitedRoster } from "@/configs/roster"
 import PaymentPopup from "../PaymentPopup"
 import Link from "next/link"
-import Image from "next/image"
 
 
 const screenshots = Array.from({ length: LimitedMetadata.screenshots_count }).map((_, i) => `/${LimitedMetadata.id}/screenshots/${i + 1}.webp`)
