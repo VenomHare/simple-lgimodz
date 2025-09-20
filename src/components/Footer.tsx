@@ -9,7 +9,7 @@ export default function Footer() {
             <div className="w-[85svw] lg:w-[75svw] xl:w-[60svw]  h-full flex flex-col items-center md:flex-row py-10 gap-10">
                 <div className="flex flex-col gap-4 w-full items-center">
                     <div className="w-full h-full flex items-center gap-4 px-4">
-                        <Image src="/lgimodz.webp" alt="lgimodz" width={128} height={128}></Image>
+                        <img src="/lgimodz.webp" alt="lgimodz" width={128} height={128}></img>
                         <div className="flex flex-col gap-4">
                             <h4 className="font-medium text-4xl font-neon">LGI Modz</h4>
                             <h5 className="font-light text-sm font-schibsted">A Mod that you always want</h5>

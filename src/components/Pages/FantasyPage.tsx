@@ -43,7 +43,7 @@ export function FantasyPage() {
             {/* Main Content */}
             <main className="container mx-auto px-4 py-8 space-y-12">
                 <div className="w-full flex justify-center">
-                    <Image src={FantasyMetadata.poster} alt="Fantasy Edition" width={175} height={250} />
+                    <img src={FantasyMetadata.poster} alt="Fantasy Edition" width={175} height={250} />
                 </div>
 
                 {/* Patch Info */}

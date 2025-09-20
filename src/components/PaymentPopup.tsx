@@ -181,7 +181,7 @@ function PatchDetailsScreen({
                 <CardContent className="pt-6">
                     <div className="flex gap-4">
                         <div className="flex-shrink-0">
-                            <Image
+                            <img
                                 width={100} height={150}
                                 src={patchDetails.thumbnail || "/placeholder.svg"}
                                 alt={patchDetails.name}

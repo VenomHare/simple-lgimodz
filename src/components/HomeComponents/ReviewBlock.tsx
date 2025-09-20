@@ -16,7 +16,7 @@ export default function ReviewBlock({ content, name, title, pfp }: Props) {
                     <div className="w-10 h-10 rounded-full overflow-clip">
                         {
                             pfp ?
-                                <Image src={pfp} alt="Profile Picture" className="w-full h-full object-center object-contain" width={256} height={256} />
+                                <img src={pfp} alt="Profile Picture" className="w-full h-full object-center object-contain" width={256} height={256} />
                                 :
                                 <div className="w-full h-full flex items-center justify-center bg-green-800 font-semibold">
                                     {name.split(" ").map((n, i) => i < 2 && n[0]).join("")}

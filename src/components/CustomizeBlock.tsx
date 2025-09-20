@@ -7,7 +7,7 @@ export default function CustomizeBlock() {
     return (<>
         <div className="w-full lg:w-[90%] flex flex-col items-center md:flex-row-reverse gap-4 mt-15 border-3 rounded-xl py-15 md:py-10 px-10 ">
             <div className="w-[80%] h-[25svh] md:w-[75%] lg:w-[50%] xl:w-1/2 mx-3">
-                <Image width={215} height={215} src="/hero.webp" alt="Custom Patch" className="w-full h-full object-contain object-bottom relative md:-bottom-10" />
+                <img width={215} height={215} src="/hero.webp" alt="Custom Patch" className="w-full h-full object-contain object-bottom relative md:-bottom-10" />
             </div>
             <div className="w-full flex flex-col gap-6 ">
                 <div className="w-full text-center md:text-left md:w-8/12 text-4xl font-semibold font-schibsted rounded-lg ">Create a Custom Patch</div>

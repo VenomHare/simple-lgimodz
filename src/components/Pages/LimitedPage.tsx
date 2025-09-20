@@ -71,7 +71,7 @@ export function LimitedPage() {
                 {/* Screenshot Carousel */}
                 <section className="relative">
                     <div className="relative aspect-[2/1] rounded-xl overflow-hidden bg-card">
-                        <Image
+                        <img
                             src={screenshots[currentScreenshot] || "/placeholder.svg"}
                             alt={`Screenshot ${currentScreenshot + 1}`}
                             className="w-full h-full object-cover"

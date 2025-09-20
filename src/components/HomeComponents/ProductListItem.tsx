@@ -42,7 +42,7 @@ export default function ProductListItem({ loading, poster, title, description, l
                         Array.from({ length: screenshots_count }).map((_, i) =>
                             <CarouselItem key={i}>
                                 <div className="w-full p-1 flex justify-center">
-                                    <Image width={960} height={540} src={`/${id}/screenshots/${i+1}.webp`} alt={"thumbnail"} className="w-full h-[25svh] rounded-3xl object-contain drop-shadow-xl drop-shadow-secondary/50"></Image>
+                                    <img width={960} height={540} src={`/${id}/screenshots/${i+1}.webp`} alt={"thumbnail"} className="w-full h-[25svh] rounded-3xl object-contain drop-shadow-xl drop-shadow-secondary/50"></img>
                                 </div>
                             </CarouselItem>
                         )
@@ -57,7 +57,7 @@ export default function ProductListItem({ loading, poster, title, description, l
                     Try removing overflow-hidden from parent containers, or use a more visible shadow color.
                     Also, ensure you are using the correct Tailwind classes.
                 */}
-                <Image
+                <img
                     src={poster}
                     alt={"Poster"}
                     width={200}
