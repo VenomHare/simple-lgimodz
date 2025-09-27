@@ -180,7 +180,7 @@ export function EvolutionPage() {
                         </div>
                     </div>
                     <Badge variant="default" className="text-lg mt-4 px-4 py-2">
-                        <h2 className="text-3xl font-schibsted font-semibold text-balance">Release Date : 1st October</h2>
+                        <h2 className="text-3xl font-schibsted font-semibold text-balance">Release Date  15th October</h2>
                     </Badge>
                 </section>
 
