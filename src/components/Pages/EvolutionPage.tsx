@@ -18,6 +18,7 @@ import { WrestlerCard } from "../DisplayComponents/WrestlerCard"
 import { EvolutionRosterV1, EvolutionRosterV2 } from "@/configs/roster"
 import PaymentPopup from "../PaymentPopup"
 import Link from "next/link"
+import Countdown from "../DisplayComponents/countdown"
 
 const screenshots = Array.from({ length: EvolutionMetadata.screenshots_count }).map((_, i) => `/${EvolutionMetadata.id}/screenshots/${i + 1}.webp`)
 
@@ -37,7 +38,8 @@ export function EvolutionPage() {
         hasDiscount: EvolutionTiers[1].hasDiscount,
         discountPrice: EvolutionTiers[1].discountedPriceUSD
     })
-
+    
+    const releaseDate = new Date("2025-10-15T13:30:00.000Z");
     const [showCredits, setShowCredits] = useState(false)
 
     const nextScreenshot = () => {
@@ -179,10 +181,15 @@ export function EvolutionPage() {
                             <span>Enhanced Graphics</span>
                         </div>
                     </div>
-                    <Badge variant="default" className="text-lg mt-4 px-4 py-2">
-                        <h2 className="text-3xl font-schibsted font-semibold text-balance">Release Date : 1st October</h2>
-                    </Badge>
                 </section>
+                {/* Release Countdown */}
+                <div className="max-w-4xl mx-auto w-full">
+                    <Countdown
+                        target={releaseDate}
+                        title="Patch Release Countdown"
+                        subtitle="We're polishing the final details. Stay tuned!"
+                    />
+                </div>
 
                 <section id="tiers" className="mt-[10dvh]">
                     <div className="text-center mb-12 ">
