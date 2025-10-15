@@ -45,7 +45,7 @@ export default function Countdown({
       <div className="text-center mb-6">
         <Badge variant="secondary" className="px-4 py-2 text-xs sm:text-sm">
           <Clock className="w-4 h-4 mr-2" />
-          {isReleased ? "Available Now" : "Coming Soon"}
+          Limited Sale
         </Badge>
         <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold text-balance">{title}</h2>
         <p className="mt-2 text-muted-foreground text-xs sm:text-sm md:text-base">{subtitle}</p>

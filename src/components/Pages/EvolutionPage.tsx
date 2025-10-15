@@ -39,7 +39,7 @@ export function EvolutionPage() {
         discountPrice: EvolutionTiers[1].discountedPriceUSD
     })
     
-    const releaseDate = new Date("2025-10-15T13:30:00.000Z");
+    const releaseDate = new Date("2025-10-31T14:30:00.000Z");
     const [showCredits, setShowCredits] = useState(false)
 
     const nextScreenshot = () => {
@@ -159,7 +159,7 @@ export function EvolutionPage() {
                     <div className="space-y-4">
                         <Badge variant="secondary" className="text-lg px-4 py-2">
                             <Star className="w-4 h-4 mr-2" />
-                            Available for Pre Order
+                            Available Now
                         </Badge>
                         <h1 className="text-5xl font-bold text-balance">{EvolutionMetadata.label}</h1>
                         <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
@@ -186,8 +186,8 @@ export function EvolutionPage() {
                 <div className="max-w-4xl mx-auto w-full">
                     <Countdown
                         target={releaseDate}
-                        title="Patch Release Countdown"
-                        subtitle="We're polishing the final details. Stay tuned!"
+                        title="Special Diwali Offer"
+                        subtitle="Make your Diwali extra special with our limited time festive offer!"
                     />
                 </div>
 
@@ -195,7 +195,7 @@ export function EvolutionPage() {
                     <div className="text-center mb-12 ">
                         <Badge variant="destructive" className="text-lg px-4 py-2 mb-4">
                             <Zap className="w-4 h-4 mr-2" />
-                            Pre Order Offer
+                            Exclusive Offer
                         </Badge>
                         <h2 className="text-4xl font-bold mb-4">Choose Your Package</h2>
                         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -272,6 +272,8 @@ export function EvolutionPage() {
                                         variant={tier.popular ? "default" : "outline"}
                                         size="lg"
                                         onClick={() => {
+                                            console.log("setting Patch to " + tier.id);
+
                                             setCurrentPatch({
                                                 id: tier.id,
                                                 name: `${EvolutionMetadata.label} ${tier.name}`,
@@ -282,9 +284,10 @@ export function EvolutionPage() {
                                                 discountPrice: tier.discountedPriceUSD
                                             });
                                             setPaymentScreen(true)
+                                            console.log("The current patch is " +  currentPatch.id);
                                         }}
                                     >
-                                        Pre Order {tier.name}
+                                        Purchase {tier.name}
                                     </Button>
                                 </CardContent>
                             </Card>
