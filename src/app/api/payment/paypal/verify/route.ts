@@ -56,62 +56,65 @@ export const POST = async (req: NextRequest) => {
             ]
         })
 
-        const { data: getUser, error } = await supabase
-            .from("User")
-            .select("*")
-            .eq("emailId", email)
-            .single() // Use single() if you expect only one result
-
-        if (error && error.code !== 'PGRST116') { // PGRST116 = no rows returned
-            throw error
-        }
-        
-
-        let userId;
-
-        if (getUser) {
-            userId = getUser.id;
-        } else {
-            // Create new user
-            const { data: newUser, error: userError } = await supabase
+        try 
+        {
+            const { data: getUser, error } = await supabase
                 .from("User")
+                .select("*")
+                .eq("emailId", email)
+                .single() // Use single() if you expect only one result
+
+            if (error && error.code !== 'PGRST116') { // PGRST116 = no rows returned
+                throw error
+            }
+
+            let userId;
+
+            if (getUser) {
+                userId = getUser.id;
+            } else {
+                // Create new user
+                const { data: newUser, error: userError } = await supabase
+                    .from("User")
+                    .insert({
+                        emailId: email,
+                        discordId: discord,
+                    })
+                    .select()
+                    .single()
+
+                if (userError) {
+                    throw userError
+                }
+
+                userId = newUser.id;
+            }
+
+            // Insert purchase
+            const { data: Purchase } = await supabase
+                .from("Purchases")
                 .insert({
-                    emailId: email,
-                    discordId: discord,
+                    paymentId: captureData.id,
+                    amount: parseInt(captureData.amount.value),
+                    method: "wallet",
+                    userId: userId,
+                    patchId: patch,
+                    platform: platform,
+                    delivered: false
                 })
                 .select()
                 .single()
 
-            if (userError) {
-                throw userError
-            }
-
-            userId = newUser.id;
-        }
-
-        // Insert purchase
-        const { data: Purchase , error: purchaseError } = await supabase
-            .from("Purchases")
-            .insert({
-                paymentId: captureData.id,
-                amount: parseInt(captureData.amount.value),
-                method: "wallet",
-                userId: userId,
-                patchId: patch,
-                platform: platform,
-                delivered: false
+            return NextResponse.json({
+                message: "CAPTURED",
+                paymentId: `WWE${Purchase.id.toString().padStart(4, 0)}`//LGI-WWE-349
             })
-            .select()
-            .single()
-
-        if (purchaseError) {
-            throw purchaseError
         }
-
-        return NextResponse.json({
-            message: "CAPTURED",
-            paymentId: `WWE${Purchase.id.toString().padStart(4, 0)}`//LGI-WWE-349
-        })
+        catch {
+            return NextResponse.json({
+                message: "CAPTURED",
+            })
+        }
     }
     catch (err) {
         console.log(err);
@@ -121,6 +124,4 @@ export const POST = async (req: NextRequest) => {
             status: 500
         })
     }
-
-
 }

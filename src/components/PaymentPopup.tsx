@@ -169,6 +169,7 @@ function PatchDetailsScreen({
     onProceed: () => void
 }) {
 
+
     const handleInputChange = (field: keyof UserInfo, value: string) => {
         setUserInfo({ ...userInfo, [field]: value })
     }
@@ -397,7 +398,7 @@ function PaymentScreen({
         setIsProcessing(false);
         onFailed();
     }
-
+    console.log(options);
     return (
         <div className="space-y-6">
             <div className="flex items-center gap-2">
@@ -482,7 +483,7 @@ function SuccessScreen({
 
     function popConfetti() {
         confetti({
-            particleCount: 150,
+            particleCount: 250,
             spread: 70,
             origin: { y: 0.6 }
         });
@@ -490,7 +491,7 @@ function SuccessScreen({
 
     // 2. A more explosive fireworks effect
     function fireworks() {
-        const duration = 5 * 1000;
+        const duration = 10 * 1000;
         const animationEnd = Date.now() + duration;
         const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
@@ -515,7 +516,7 @@ function SuccessScreen({
     useEffect(() => {
         try {
             popConfetti();
-            fireworks();
+            setTimeout(fireworks, 500);
         }
         catch{
             console.log("Failed to play animation");
@@ -546,10 +547,13 @@ function SuccessScreen({
             <Card>
                 <CardContent className="pt-6">
                     <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                            <span>Order ID:</span>
-                            <span className="font-mono">#{paymentId}</span>
-                        </div>
+                        {
+                            paymentId &&
+                                <div className="flex justify-between">
+                                    <span>Order ID:</span>
+                                    <span className="font-mono">#{paymentId}</span>
+                                </div>
+                        }
                         {
                             patchDetails.id !== "donate" &&
                             <div className="flex justify-between">
