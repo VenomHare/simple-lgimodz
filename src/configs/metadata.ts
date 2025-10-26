@@ -15,7 +15,7 @@ export const DeluxeMetadata = {
     downloadLink: "https://link-target.net/1237994/EcQhGc1ARsjU",
     patreonLink: "https://www.patreon.com/posts/wwe-smackdown-136320331",    
 }
-
+ 
 export const EvolutionMetadata = {
     id: "evolution",
     label: "Evolution Edition",
