@@ -73,7 +73,7 @@ export const EvolutionTiers = [
     discount: 10,
     hasDiscount: true,
     features: [
-      "Complete 2K25 Evolution Patch",
+      "HD Renders & UI",
       `${EvolutionRosterV1.length}+ Wrestlers`,
       `${EvolutionArenas.filter(i => i.name == "V1" ).length} Arenas`,
       "Enhanced Graphics",
@@ -88,7 +88,7 @@ export const EvolutionTiers = [
     icon: <Crown className="w-6 h-6" />,
 
     originalPriceUSD: 59.99,
-    discountedPriceUSD: 49.99,
+    discountedPriceUSD: 54.99,
 
     originalPriceINR: 5999,
     discountedPriceINR: 4999,
@@ -101,7 +101,7 @@ export const EvolutionTiers = [
       "Exclusive Bonus Wrestlers (10+)",
       "Extra Premium Arenas Pack (10+)",
       "Custom Entrance Music",
-      "Priority Support",
+      // "Priority Support",
       "Early Access to Updates",
       "Video Installation Tutorial",
     ],
