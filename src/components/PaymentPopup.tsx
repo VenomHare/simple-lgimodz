@@ -323,7 +323,7 @@ function PaymentScreen({
 }) {
 
 
-    const total = patchDetails.price
+    const total = patchDetails.hasDiscount ? patchDetails.discountPrice :patchDetails.price
 
     const options = {
         "clientId": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID!,

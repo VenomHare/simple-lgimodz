@@ -27,11 +27,11 @@ export const discountOffers: DiscountOffer[] = [
 ]
 
 export const LimitedPricing = {
-  originalPriceUSD: 34.99,
-  discountedPriceUSD: 24.99,
+  originalPriceUSD: 39.99,
+  discountedPriceUSD: 29.99,
 
-  originalPriceINR: 2500,
-  discountedPriceINR: 1800,
+  originalPriceINR: 3000,
+  discountedPriceINR: 2000,
 
   discount: 30,
   hasDiscount: true

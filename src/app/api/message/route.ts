@@ -6,7 +6,6 @@ import { NextRequest, NextResponse } from "next/server";
 export const POST = async (req: NextRequest) => {
     try {
         const { email, discord, patchId, method } = await req.json();
-        
         if (method == "upi") {
             await axios.post("https://discord.com/api/webhooks/1388867597239582730/uffOZ-pyuogKZwfQsASW8oQHD4puOTL7yhk8cjpAzAHeWwlE3gUOYl0n1G8U3eHGBDGe", {
                 content: "<@&1313074475914362932>",
