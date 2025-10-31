@@ -18,7 +18,7 @@ import { WrestlerCard } from "../DisplayComponents/WrestlerCard"
 import { EvolutionRosterV1, EvolutionRosterV2 } from "@/configs/roster"
 import PaymentPopup from "../PaymentPopup"
 import Link from "next/link"
-import Countdown from "../DisplayComponents/countdown"
+// import Countdown from "../DisplayComponents/countdown"
 
 const screenshots = Array.from({ length: EvolutionMetadata.screenshots_count }).map((_, i) => `/${EvolutionMetadata.id}/screenshots/${i + 1}.webp`)
 
@@ -39,7 +39,7 @@ export function EvolutionPage() {
         discountPrice: EvolutionTiers[1].discountedPriceUSD
     })
     
-    const releaseDate = new Date("2025-10-31T14:30:00.000Z");
+    // const releaseDate = new Date("2025-10-31T14:30:00.000Z");
     const [showCredits, setShowCredits] = useState(false)
 
     const nextScreenshot = () => {
