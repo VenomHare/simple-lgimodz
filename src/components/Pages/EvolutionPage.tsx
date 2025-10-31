@@ -183,13 +183,13 @@ export function EvolutionPage() {
                     </div>
                 </section>
                 {/* Release Countdown */}
-                <div className="max-w-4xl mx-auto w-full">
+                {/* <div className="max-w-4xl mx-auto w-full">
                     <Countdown
                         target={releaseDate}
                         title="Special Diwali Offer"
                         subtitle="Make your Diwali extra special with our limited time festive offer!"
                     />
-                </div>
+                </div> */}
 
                 <section id="tiers" className="mt-[10dvh]">
                     <div className="text-center mb-12 ">
