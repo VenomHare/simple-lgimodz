@@ -2,12 +2,14 @@ import { createDiscordEmbed } from "@/lib/utils";
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
 
+const UPI_WEBHOOK = process.env.UPI_WEBHOOK!;
+const PAYPAL_WEBHOOK = process.env.PAYPAL_WEBHOOK!;
 
 export const POST = async (req: NextRequest) => {
     try {
         const { email, discord, patchId, method } = await req.json();
         if (method == "upi") {
-            await axios.post("https://discord.com/api/webhooks/1388867597239582730/uffOZ-pyuogKZwfQsASW8oQHD4puOTL7yhk8cjpAzAHeWwlE3gUOYl0n1G8U3eHGBDGe", {
+            await axios.post(UPI_WEBHOOK, {
                 content: "<@&1313074475914362932>",
                 embeds: [
                     createDiscordEmbed("Button Clicked", [
@@ -30,7 +32,7 @@ export const POST = async (req: NextRequest) => {
             })
         }
         else {
-            await axios.post("https://discord.com/api/webhooks/1388868603893387395/6Hon4pO7wo4VstHKNETCW2dXsq8Ns2ZY5IPbgi283HF_9h4l3RlpwqdZ4i8k9QhJyZC5", {
+            await axios.post(PAYPAL_WEBHOOK, {
                 content: "<@&1313074475914362932>",
                 embeds: [
                     createDiscordEmbed("Button Clicked", [

@@ -3,10 +3,11 @@ import axios from "axios";
 import { endpoint_uri, fetchAccessToken, supabase } from "@/lib/server";
 import { createDiscordEmbed } from "@/lib/utils";
 
+const PAYMENT_WEBHOOK = process.env.PAYMENT_WEBHOOK;
+
 export const POST = async (req: NextRequest) => {
 
-    try {
-        const access_token = await fetchAccessToken();
+    try {        const access_token = await fetchAccessToken();
         const { orderId, email, discord, patch, platform } = await req.json();
 
         if (!orderId) {
@@ -20,41 +21,43 @@ export const POST = async (req: NextRequest) => {
             },
         })
         const captureData = response.data.purchase_units[0].payments.captures[0];
-        await axios.post("https://discord.com/api/webhooks/1383788124710244372/CnVquMC-3ri36jQ-Ux4VudaW7kcFJmPZkn0oJxexLct8ALJcKFAj45yhu5Klv0vB5ywG", {
-            content: "<@&1313074475914362932>",
-            embeds: [
-                createDiscordEmbed("Payment Recieved", [
-                    {
-                        name: "Payment Id",
-                        value: captureData.id,
-                        inline: true
-                    },
-                    {
-                        name: "Order Id",
-                        value: orderId,
-                        inline: true
-                    },
-                    {
-                        name: "Email",
-                        value: email
-                    },
-                    {
-                        name: "Discord",
-                        value: discord,
-                    },
-                    {
-                        name: "Platform",
-                        value: platform,
-                        inline: true
-                    },
-                    {
-                        name: "Patch Id",
-                        value: patch,
-                        inline: true
-                    },
-                ])
-            ]
-        })
+        if (PAYMENT_WEBHOOK) {
+            await axios.post(PAYMENT_WEBHOOK , {
+                content: "<@&1313074475914362932>",
+                embeds: [
+                    createDiscordEmbed("Payment Recieved", [
+                        {
+                            name: "Payment Id",
+                            value: captureData.id,
+                            inline: true
+                        },
+                        {
+                            name: "Order Id",
+                            value: orderId,
+                            inline: true
+                        },
+                        {
+                            name: "Email",
+                            value: email
+                        },
+                        {
+                            name: "Discord",
+                            value: discord,
+                        },
+                        {
+                            name: "Platform",
+                            value: platform,
+                            inline: true
+                        },
+                        {
+                            name: "Patch Id",
+                            value: patch,
+                            inline: true
+                        },
+                    ])
+                ]
+            })
+        }
 
         try 
         {
