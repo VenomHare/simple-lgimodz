@@ -31,7 +31,7 @@ export default function HomePage() {
             patchDetails={currentPatch}
         />
         {/* bg gradient */}
-        <div className="absolute top-[-25%] left-0 w-[100svw] h-screen bg-[radial-gradient(circle_at_top,#FF0000_-100%,#00000072_40%)] backdrop-blur-lg inset-0 z-[-1]">
+        <div className="absolute top-[-25%] left-0 w-svw h-screen bg-[radial-gradient(circle_at_top,#FF0000_-100%,#00000072_40%)] backdrop-blur-lg inset-0 z-[-1]">
 
         </div>
         <div className="flex flex-col items-center mt-6">

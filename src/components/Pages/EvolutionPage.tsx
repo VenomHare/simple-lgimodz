@@ -33,7 +33,7 @@ import { WrestlerCard } from "../DisplayComponents/WrestlerCard";
 import { EvolutionRosterV1, EvolutionRosterV2 } from "@/configs/roster";
 import PaymentPopup from "../PaymentPopup";
 import Link from "next/link";
-import NoticeCard from "../DisplayComponents/NoticeCard";
+// import NoticeCard from "../DisplayComponents/NoticeCard";
 // import Countdown from "../DisplayComponents/countdown"
 
 const screenshots = Array.from({
@@ -92,7 +92,7 @@ export function EvolutionPage() {
         <main className="container mx-auto px-4 py-8 space-y-12">
           {/* Screenshot Carousel */}
           <section className="relative">
-            <div className="relative aspect-[2/1] rounded-xl overflow-hidden bg-card">
+            <div className="relative aspect-2/1 rounded-xl overflow-hidden bg-card">
               <img
                 src={screenshots[currentScreenshot] || "/placeholder.svg"}
                 alt={`Screenshot ${currentScreenshot + 1}`}
@@ -100,7 +100,7 @@ export function EvolutionPage() {
                 width={1920}
                 height={1080}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
 
               {/* Navigation Buttons */}
               <Button
@@ -322,7 +322,7 @@ export function EvolutionPage() {
                             key={featureIndex}
                             className="flex items-start gap-3"
                           >
-                            <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                            <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                             <span className="text-sm">{feature}</span>
                           </li>
                         ))}
@@ -376,11 +376,11 @@ export function EvolutionPage() {
           <section className="w-full flex items-center justify-center mb-[10dvh]">
             <div className="w-full flex flex-col items-center gap-[4dvh]">
               <div className="w-full md:w-4/5 lg:w-2/5 flex items-center justify-center gap-3">
-                <div className="w-1/3 h-[1px] rounded bg-muted-foreground/40"></div>
+                <div className="w-1/3 h-px] rounded bg-muted-foreground/40"></div>
                 <div className="text-muted-foreground/40 font-playwrite">
                   or
                 </div>
-                <div className="w-1/3 h-[1px] rounded bg-muted-foreground/40"></div>
+                <div className="w-1/3 h-px rounded bg-muted-foreground/40"></div>
               </div>
               <Link
                 href={EvolutionMetadata.patreonLink}
