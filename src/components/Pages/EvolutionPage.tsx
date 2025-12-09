@@ -237,10 +237,11 @@ export function EvolutionPage() {
                 regular updates.
               </p>
             </div>
-
-            <div className="my-10">
-                <NoticeCard text=" V1 will be published on 1 December, 2025" />
-            </div>
+            {/*
+              <div className="my-10">
+                  <NoticeCard text=" V1 will be published on 1 December, 2025" />
+              </div>
+             */}
             
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
